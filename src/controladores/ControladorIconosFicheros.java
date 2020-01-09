@@ -41,6 +41,7 @@ public class ControladorIconosFicheros {
 	private final static String wav = "wav.png";
 	private final static String xml = "xml.png";
 	private final static String zip = "zip.png";
+	private final static String generico = "documentos.png";
 
 	public static JLabel recuperarIcono(String extension) {
 		// Cargar Imagen
@@ -130,7 +131,7 @@ public class ControladorIconosFicheros {
 		} else if (extension.contains("zip")) {
 			ruta += zip;
 		} else {
-
+			ruta += generico;
 		}
 
 		return ruta;

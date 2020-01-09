@@ -31,6 +31,8 @@ import javax.mail.MessagingException;
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JEditorPane;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 /**
  * Esta clase Contiene la ventana con la que se administra el correo |
@@ -52,7 +54,7 @@ public class InterfazEmail extends JDialog {
 	private static JTable table;
 	private static ModeloTextoInterfaz modeloTexto;
 	private static CreadorInterfaz creacion;
-
+	private ftpCliente.HiloRecargaEmail recargaAuto;
 	/**
 	 * Launch the application.
 	 */
@@ -72,6 +74,12 @@ public class InterfazEmail extends JDialog {
 	 * @param pass La contrase�a del correo que se va a administrar
 	 */
 	public InterfazEmail(String user, String pass) {
+		addWindowListener(new WindowAdapter() {
+			@Override
+			public void windowClosing(WindowEvent e) {
+				recargaAuto.stop();
+			}
+		});
 		this.user = user;
 		this.pass = pass;
 		VentanaCarga ventanaCarga = new VentanaCarga();
@@ -85,12 +93,12 @@ public class InterfazEmail extends JDialog {
 		modeloTexto = new ModeloTextoInterfaz();
 		creacion = new CreadorInterfaz();
 
-		ftpCliente.HiloRecargaEmail recargaAuto = new ftpCliente.HiloRecargaEmail();
+		recargaAuto = new ftpCliente.HiloRecargaEmail();
 		recargaAuto.start();
 
 		setResizable(false);
 		setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 855, 547);
+		setBounds(100, 100, 955, 547);
 		fuenteTitulo = new Font("Dialog", Font.BOLD, 14);
 
 		// Global Layout
@@ -125,7 +133,7 @@ public class InterfazEmail extends JDialog {
 
 		// Table
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(50, 50, 515, 365);
+		scrollPane.setBounds(50, 50, 615, 365);
 		contentPane.add(scrollPane);
 
 		dtm = new DefaultTableModel();
@@ -198,11 +206,12 @@ public class InterfazEmail extends JDialog {
 	 * 
 	 */
 	public static void recargarTabla() {
-		vaciarTabla();
+		
 		try {
 			recibocorreo.MenuCorreo menuCorreo = new MenuCorreo(user, pass);
 			menuCorreo.conectar();
 			Message[] mensajes = menuCorreo.listarMensajes();
+			vaciarTabla();
 			for (int i = mensajes.length - 1; i >= 0; i--) {
 				Object[] row = { mensajes[i].getFrom()[0].toString(), mensajes[i].getSubject() };
 				dtm.addRow(row);

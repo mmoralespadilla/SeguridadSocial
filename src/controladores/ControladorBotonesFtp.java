@@ -1,5 +1,6 @@
 package controladores;
 
+import java.awt.HeadlessException;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
@@ -115,7 +116,6 @@ public class ControladorBotonesFtp implements ActionListener {
 				nomFichero = JOptionPane.showInputDialog("Nombre del fichero");
 				if (nomFichero.length() != 0) {
 					String extension = FilenameUtils.getExtension(nomFichero);
-					System.out.println(extension);
 					if (extension.length() != 0) {
 						ftp.crearFichero(nomFichero);
 					} else {
@@ -128,8 +128,8 @@ public class ControladorBotonesFtp implements ActionListener {
 			// El boton pulsado es eliminar
 		} else if (boton.equals(textos.getTituloEliminar())) {
 			try {
+				int[] archivos = InterfazFtp.table.getSelectedRows();
 				if (JOptionPane.showConfirmDialog(null, "�Seguro que quiere eliminar?") == 0) {
-					int[] archivos = InterfazFtp.table.getSelectedRows();
 					for (int i = 0; i < archivos.length; i++) {
 						archivo = (String) InterfazFtp.dtm.getValueAt(archivos[i], 1);
 						ftp.borrarCarpeta(archivo);
@@ -153,9 +153,13 @@ public class ControladorBotonesFtp implements ActionListener {
 			}
 			// El boton pulsado es cambiar nombre
 		} else if (boton.equals(textos.getTituloCambiarNombre())) {
-			archivo = (String) InterfazFtp.dtm.getValueAt(InterfazFtp.table.getSelectedRow(), 1);
-			nomFichero = JOptionPane.showInputDialog("Nombre nuevo");
-			ftp.renombrar(archivo, nomFichero);
+			try {
+				archivo = (String) InterfazFtp.dtm.getValueAt(InterfazFtp.table.getSelectedRow(), 1);
+				nomFichero = JOptionPane.showInputDialog("Nombre nuevo");
+				ftp.renombrar(archivo, nomFichero);
+			} catch (ArrayIndexOutOfBoundsException e1) {
+				
+			}
 			// El boton pulsado es abrir correo
 		} else if (boton.equals(textos.getTituloCorreoAbrir())) {
 			InterfazEmail email = new InterfazEmail(ftp.getEmail(), ftp.getPass());

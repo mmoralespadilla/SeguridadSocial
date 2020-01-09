@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 
+import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.net.ftp.FTPClient;
 import org.apache.commons.net.ftp.FTPFile;
 /**
@@ -72,11 +73,16 @@ public class ControladorFtp {
 		boolean subido = false;
 		try {
 			in = new BufferedInputStream(new FileInputStream(archivo));
-			if (cliente.storeFile(nombre, in)) {
-				subido = true;
-				System.out.println(archivo + nombre);
-				ConexionMysql.insertarMovimiento(user, "Subir", "Archivo " + nombre + "subido");
+			String extension = FilenameUtils.getExtension(nombre);
+			if (extension.length() == 0) {
+				nombre += ".txt";
 			}
+				if (cliente.storeFile(nombre, in)) {
+					subido = true;
+					System.out.println(archivo + nombre);
+					ConexionMysql.insertarMovimiento(user, "Subir", "Archivo " + nombre + "subido");
+				} 
+			
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
@@ -134,6 +140,7 @@ public class ControladorFtp {
 						
 						posicion--;
 						cliente.changeWorkingDirectory(rutas.get(posicion));
+						rutas.remove(posicion);
 						cliente.removeDirectory(nombreCarpeta);
 						//System.out.println("No se pudo borrar directorio.");
 					}
