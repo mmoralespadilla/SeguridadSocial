@@ -39,6 +39,7 @@ public class InterfazLogin extends JFrame {
 	private JPanel panelImagen;
 	private String rutaImagen;
 	private static ModeloTextoInterfaz modeloTexto;
+	private JTextField textFierldIp;
 
 	/**
 	 * Launch the application.
@@ -70,7 +71,7 @@ public class InterfazLogin extends JFrame {
 		setTitle(modeloTexto.getTituloLogin());
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 524, 312);
+		setBounds(100, 100, 524, 358);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -80,7 +81,7 @@ public class InterfazLogin extends JFrame {
 		panelLogin = new JPanel();
 		panelLogin.setBorder(new LineBorder(new Color(30, 105, 90), 3));
 
-		panelLogin.setBounds(40, 86, 427, 168);
+		panelLogin.setBounds(40, 86, 427, 218);
 		contentPane.add(panelLogin);
 		panelLogin.setLayout(null);
 		panelLogin.setBackground(new java.awt.Color(218, 230, 228));
@@ -113,7 +114,8 @@ public class InterfazLogin extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				String password = textFieldContrasena.getText().toString();
 				String usuario = textFieldUsuario.getText().toString();
-				ControladorFtp ftp = new ControladorFtp("localhost",usuario, password);
+				String direccionFtp = textFierldIp.getText();
+				ControladorFtp ftp = new ControladorFtp(direccionFtp,usuario, password);
 				int comprobarLogin = ConexionMysql.comprobarLogin(usuario, password, ftp);
 				System.out.println(ftp.getEmail() + " //");
 				if (comprobarLogin >= 0) {
@@ -142,7 +144,7 @@ public class InterfazLogin extends JFrame {
 				}
 			}
 		});
-		btnLogin.setBounds(165, 120, 97, 30);
+		btnLogin.setBounds(165, 172, 97, 30);
 		btnLogin.setForeground(Color.WHITE);
 		btnLogin.setBackground(new java.awt.Color(30, 105, 90));
 		btnLogin.setFont(fuenteTitulo);
@@ -151,6 +153,16 @@ public class InterfazLogin extends JFrame {
 		Border compound = new CompoundBorder(line, margin);
 		btnLogin.setBorder(compound);
 		panelLogin.add(btnLogin);
+		
+		JLabel labelFtp = new JLabel(modeloTexto.getDireccionFtp());
+		labelFtp.setFont(new Font("Dialog", Font.BOLD, 14));
+		labelFtp.setBounds(31, 127, 90, 16);
+		panelLogin.add(labelFtp);
+		
+		textFierldIp = new JTextField();
+		textFierldIp.setColumns(10);
+		textFierldIp.setBounds(134, 124, 231, 25);
+		panelLogin.add(textFierldIp);
 		
 		rutaImagen = "imagen\\logo.png";
   

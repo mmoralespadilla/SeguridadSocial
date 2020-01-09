@@ -77,7 +77,7 @@ public class InterfazFtp extends JFrame {
 		ArrayList<String> titulosMenuItemCorreo;
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 855, 547);
+		setBounds(100, 100, 955, 547);
 
 		// Menu
 		JMenuBar menuBar = new JMenuBar();
@@ -140,13 +140,13 @@ public class InterfazFtp extends JFrame {
 
 		// Label
 		JLabel lblUsuario = new JLabel(modeloTexto.getTituloUsuario());
-		lblUsuario.setBounds(615, 30, 205, 16);
+		lblUsuario.setBounds(715, 30, 205, 16);
 		lblUsuario.setFont(fuenteTitulo);
 		contentPane.add(lblUsuario);
 
 		// Table
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(50, 60, 515, 365);
+		scrollPane.setBounds(50, 60, 615, 365);
 		contentPane.add(scrollPane);
 		dtm = new DefaultTableModel();
 		table = new JTable(dtm) {
@@ -163,7 +163,7 @@ public class InterfazFtp extends JFrame {
 		dtm.addColumn(modeloTexto.getCabeceraTipoArchivo());
 		dtm.addColumn(modeloTexto.getTituloCabeceraTabla());
 		TableColumnModel columnModel = table.getColumnModel();
-		table.setRowHeight(20);
+		table.setRowHeight(40);
 		columnModel.getColumn(0).setPreferredWidth(100);
 		columnModel.getColumn(0).setResizable(false);
 		columnModel.getColumn(1).setPreferredWidth(800);
@@ -171,7 +171,7 @@ public class InterfazFtp extends JFrame {
 		scrollPane.getViewport().setBackground(Color.WHITE);
 		scrollPane.setViewportView(table);
   
-		JButton btnAtras = creador.elaborarBoton(modeloTexto.getTituloBotonAtras(), 460, 20, 105);
+		JButton btnAtras = creador.elaborarBoton(modeloTexto.getTituloBotonAtras(), 560, 20, 105);
 		lblUsuario.setText("Usuario: " + ftp.getUser());
 		contentPane.add(btnAtras);
 		contentPane.add(lblRuta);
@@ -233,25 +233,7 @@ public class InterfazFtp extends JFrame {
 		for (int i = 0; i < ftp.getFicheros().length; i++) {
 			String nomFichero = ftp.getFicheros()[i].getName();
 			String extension = FilenameUtils.getExtension(nomFichero);
-			
-			//Cargar Imagen
-			String rutaImagen = null;
-			if(extension.length() == 0) {
-				rutaImagen  = "imagen\\carpeta.png";
-			}else {
-				//rutaImagen = recuperarIconoArchivo(extension);
-			}
-			
-			
-			ImageIcon icon =new ImageIcon(rutaImagen);
-			JLabel foto=new JLabel();
-				foto.setHorizontalAlignment(SwingConstants.CENTER);
-			
-			foto.setSize(30,30);
-			Icon icono = new ImageIcon(icon.getImage().getScaledInstance(
-					foto.getWidth(), foto.getHeight(), Image.SCALE_DEFAULT));
-			foto.setIcon(icono);
-			
+			JLabel foto= controladores.ControladorIconosFicheros.recuperarIcono(extension);
 			Object[] row = { foto, nomFichero };
 			dtm.addRow(row);
 		}

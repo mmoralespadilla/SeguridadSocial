@@ -41,12 +41,25 @@ public class ModeloTextoInterfaz {
 	private String errorEnvio = "Error de envío";
 	private String noEnviado = "No se ha podido enviar el correo, comprueba que has escrito el remitente correctamente";
 	private String cabeceraTipoArchivo = "Tipo";
+	private String direccionFtp = "Ip ftp";
 	public String getTituloEliminar() {
 		return tituloEliminar;
 	}
   
 	public String getTituloBotonAtras() {
 		return tituloBotonAtras;
+	}
+
+	public String getDireccionFtp() {
+		return direccionFtp;
+	}
+
+	public void setDireccionFtp(String direccionFtp) {
+		this.direccionFtp = direccionFtp;
+	}
+
+	public void setCabeceraTipoArchivo(String cabeceraTipoArchivo) {
+		this.cabeceraTipoArchivo = cabeceraTipoArchivo;
 	}
 
 	public void setTituloBotonAtras(String tituloBotonAtras) {

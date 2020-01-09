@@ -59,6 +59,7 @@ public class MouseAdapterFtp implements MouseListener {
 					ftp.getRutas().add(ruta);
 					ftp.incrementarPosicion();
 					lblRuta.setText("Ruta: " + ruta);
+					InterfazFtp.recargarTabla();
 				}
 			} catch (IOException e1) {
 				// TODO Auto-generated catch block
@@ -66,7 +67,6 @@ public class MouseAdapterFtp implements MouseListener {
 			}catch(ArrayIndexOutOfBoundsException e2) {
 				
 			}
-			InterfazFtp.recargarTabla();
 		}
 	}
 

@@ -44,7 +44,7 @@ public class CreadorInterfaz {
 			}else {
 				boton.addActionListener(controlBotonesFtp);
 			}			
-			boton.setBounds(615, y, 160, 40);
+			boton.setBounds(715, y, 160, 40);
 			y += 65;
 			ponerPropiedadesBoton(boton);
 			panel.add(boton);	
