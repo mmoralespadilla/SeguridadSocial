@@ -153,7 +153,6 @@ public class ControladorBotonesFtp implements ActionListener {
 		//El boton pulsado es atras
 		} else if (boton.equals(textos.getTituloBotonAtras())) {
 			ruta = "";
-			System.out.println(ftp.getPosicion());
 			if (ftp.getPosicion() >= 1) {
 				ftp.decrementarPosicion();
 				try {

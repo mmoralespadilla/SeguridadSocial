@@ -82,7 +82,21 @@ public class ControladorFtp {
 					ConexionMysql.insertarMovimiento(user, "Borrar carpeta", "Carpeta " + nombreCarpeta + " borrada");
 					System.out.println("Carpeta borrada.");
 				} else {
-					System.out.println("No se pudo borrar directorio.");
+					String rutaNueva = rutas.get(posicion)+"/"+nombreCarpeta;
+					cliente.changeWorkingDirectory(rutaNueva);
+					posicion++;
+					rutas.add(rutaNueva);
+					
+					ficheros = cliente.listFiles();
+					
+					for(FTPFile fichero : ficheros) {
+						borrarCarpeta(fichero.getName());
+					}
+					
+					posicion--;
+					cliente.changeWorkingDirectory(rutas.get(posicion));
+					cliente.removeDirectory(nombreCarpeta);
+					//System.out.println("No se pudo borrar directorio.");
 				}
 			} else if (f.isFile()) {
 				if (cliente.deleteFile(nombreCarpeta)) {
@@ -97,6 +111,8 @@ public class ControladorFtp {
 			e.printStackTrace();
 		}
 	}
+	
+	
 
 	public void renombrar(String nombreAntiguo, String nombreNuevo) {
 		try {
