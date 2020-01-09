@@ -77,42 +77,43 @@ public class ControladorFtp {
 	public void borrarCarpeta(String nombreCarpeta) {
 		try {
 			FTPFile f = cliente.mlistFile(nombreCarpeta);
-			if (f.isDirectory()) {
-				if (cliente.removeDirectory(nombreCarpeta)) {
-					ConexionMysql.insertarMovimiento(user, "Borrar carpeta", "Carpeta " + nombreCarpeta + " borrada");
-					System.out.println("Carpeta borrada.");
-				} else {
-					String rutaNueva = rutas.get(posicion)+"/"+nombreCarpeta;
-					cliente.changeWorkingDirectory(rutaNueva);
-					posicion++;
-					rutas.add(rutaNueva);
-					
-					ficheros = cliente.listFiles();
-					
-					for(FTPFile fichero : ficheros) {
-						borrarCarpeta(fichero.getName());
+			if(JOptionPane.showConfirmDialog(null, "¿Seguro que quiere eliminar?") == 0){
+				if (f.isDirectory()) {
+					if (cliente.removeDirectory(nombreCarpeta)) {
+						ConexionMysql.insertarMovimiento(user, "Borrar carpeta", "Carpeta " + nombreCarpeta + " borrada");
+						System.out.println("Carpeta borrada.");
+					} else {
+						String rutaNueva = rutas.get(posicion)+"/"+nombreCarpeta;
+						cliente.changeWorkingDirectory(rutaNueva);
+						posicion++;
+						rutas.add(rutaNueva);
+						
+						ficheros = cliente.listFiles();
+						
+						for(FTPFile fichero : ficheros) {
+							borrarCarpeta(fichero.getName());
+						}
+						
+						posicion--;
+						cliente.changeWorkingDirectory(rutas.get(posicion));
+						cliente.removeDirectory(nombreCarpeta);
+						//System.out.println("No se pudo borrar directorio.");
 					}
-					
-					posicion--;
-					cliente.changeWorkingDirectory(rutas.get(posicion));
-					cliente.removeDirectory(nombreCarpeta);
-					//System.out.println("No se pudo borrar directorio.");
-				}
-			} else if (f.isFile()) {
-				if (cliente.deleteFile(nombreCarpeta)) {
-					ConexionMysql.insertarMovimiento(user, "Borrar fichero", "Fichero " + nombreCarpeta + " borrado");
-					System.out.println("Fichero borrado.");
-				} else {
-					System.out.println("Fichero no existe.");
+				} else if (f.isFile()) {
+					if (cliente.deleteFile(nombreCarpeta)) {
+						ConexionMysql.insertarMovimiento(user, "Borrar fichero", "Fichero " + nombreCarpeta + " borrado");
+						System.out.println("Fichero borrado.");
+					} else {
+						System.out.println("Fichero no existe.");
+					}
 				}
 			}
+			
 		} catch (IOException e) {
 			System.out.println("ERROR E/S");
 			e.printStackTrace();
 		}
 	}
-	
-	
 
 	public void renombrar(String nombreAntiguo, String nombreNuevo) {
 		try {
