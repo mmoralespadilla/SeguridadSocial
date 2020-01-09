@@ -19,6 +19,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.border.Border;
 import javax.swing.border.CompoundBorder;
@@ -33,7 +34,7 @@ public class InterfazLogin extends JFrame {
 	private BufferedImage image;
 	private JPanel contentPane;
 	private JTextField textFieldUsuario;
-	private JTextField textFieldContrasena;
+	private JPasswordField textFieldContrasena;
 	private JPanel panelLogin;
 	private JPanel panelImagen;
 	private String rutaImagen;
@@ -102,7 +103,7 @@ public class InterfazLogin extends JFrame {
 		lblContrasena.setFont(fuenteTitulo);
 		panelLogin.add(lblContrasena);
 
-		textFieldContrasena = new JTextField();
+		textFieldContrasena = new JPasswordField();
 		textFieldContrasena.setColumns(10);
 		textFieldContrasena.setBounds(134, 75, 231, 25);
 		panelLogin.add(textFieldContrasena);
