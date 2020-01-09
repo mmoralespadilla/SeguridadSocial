@@ -9,7 +9,9 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
+import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  * Clase controladora de solicitudes a la Base de datos MySql
@@ -137,10 +139,50 @@ public class ConexionMysql {
 	public static void cerrarConexion() {
 		try {
 			con.close();
-			System.out.println("Conexi�n sql cerrada");
+			System.out.println("Conexion sql cerrada");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		}
+	}
+
+	public static void recuperarUsuariosMovimiento(JComboBox comboBoxUsuarios) {
+		if(iniciarConexion()) {
+			try {
+				Statement st = con.createStatement();
+				String query = "select usuario from movimientos group by usuario";
+				ResultSet rs = st.executeQuery(query);
+				while(rs.next()) {
+					comboBoxUsuarios.addItem(rs.getString(1));
+				}
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} finally {
+				cerrarConexion();
+			}
+		}
+	}
+
+	public static void recargarTablaHistorial(String selectedItem, DefaultTableModel dtm) {
+		if(iniciarConexion()) {
+			try {
+				Statement st = con.createStatement();
+				String query = "select * from movimientos where usuario = '"+selectedItem+"'";
+				ResultSet rs = st.executeQuery(query);
+				while(rs.next()) {
+					String id = Integer.toString(rs.getInt(1));
+					String operacion = rs.getString(3);
+					String fecha = rs.getDate(4).toString();
+					String descripcion = rs.getString(5);
+					Object[] row = {id,operacion,fecha,descripcion};
+					dtm.addRow(row);
+				}
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			cerrarConexion();
 		}
 	}
 }
