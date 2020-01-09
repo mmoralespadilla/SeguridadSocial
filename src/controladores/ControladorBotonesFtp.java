@@ -70,20 +70,20 @@ public class ControladorBotonesFtp implements ActionListener {
 				JFileChooser cargar = new JFileChooser();
 				cargar.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
 				cargar.setMultiSelectionEnabled(true);
-				cargar.showOpenDialog(null); // panel indicando que archivo cargaremos
-
-				File[] ficheros = cargar.getSelectedFiles();
-				for (int i = 0; i < ficheros.length; i++) {
-					if (ftp.subir(ficheros[i].getAbsolutePath(), ficheros[i].getName())) {
-						numeroFicheros++;
+				if (cargar.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
+					File[] ficheros = cargar.getSelectedFiles();
+					for (int i = 0; i < ficheros.length; i++) {
+						if (ftp.subir(ficheros[i].getAbsolutePath(), ficheros[i].getName())) {
+							numeroFicheros++;
+						}
 					}
-				}
-				if (numeroFicheros == 1) {
-					JOptionPane.showMessageDialog(null, "Archivo subido con éxito");
-				} else if (numeroFicheros > 1) {
-					JOptionPane.showMessageDialog(null, "Archivos subidos con éxito");
-				} else {
-					JOptionPane.showMessageDialog(null, "Error al subir archivo");
+					if (numeroFicheros == 1) {
+						JOptionPane.showMessageDialog(null, "Archivo subido con éxito");
+					} else if (numeroFicheros > 1) {
+						JOptionPane.showMessageDialog(null, "Archivos subidos con éxito");
+					} else {
+						JOptionPane.showMessageDialog(null, "Error al subir archivo");
+					}
 				}
 			} catch (NullPointerException e1) {
 				System.out.println("No ha seleccionado ningún fichero");
@@ -104,12 +104,10 @@ public class ControladorBotonesFtp implements ActionListener {
 		// El boton pulsado es crear fichero
 		else if (boton.equals(textos.getTituloCrearFichero())) {
 			try {
-				try {
 					nomFichero = JOptionPane.showInputDialog("Nombre del fichero");
-					ftp.crearFichero(nomFichero);
-				} catch (NullPointerException e2) {
-					System.out.println("No ha introducido nombre del fichero");
-				}
+					if(nomFichero.length() != 0) {
+						ftp.crearFichero(nomFichero);
+					}
 			} catch (NullPointerException e1) {
 				System.out.println("Acción cancelada");
 			}
