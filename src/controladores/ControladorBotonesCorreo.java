@@ -4,11 +4,19 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
+import javax.mail.Flags;
+import javax.mail.Flags.Flag;
+import javax.mail.Folder;
+import javax.mail.Message;
+import javax.mail.MessagingException;
+import javax.mail.internet.MimeMessage;
 import javax.swing.JDialog;
 import javax.swing.JEditorPane;
 import javax.swing.JFileChooser;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
+import javax.swing.text.DefaultEditorKit;
 
 import enviocorreo.EnvioCorreo;
 import recibocorreo.MenuCorreo;
@@ -17,16 +25,36 @@ import ventanas.InterfazEmail;
 import ventanas.InterfazEscribirEmail;
 import ventanas.ModeloTextoInterfaz;
 
+/**
+ * Esta clase realiza las acciones correspondientes a los distintos botones
+ * correspondientes al correo
+ * 
+ * @author Diego Santos
+ * @author Álvaro Fernández
+ * @author Víctor López
+ * @author Inma Jiménez
+ * @author Miguel Morales
+ *
+ */
 public class ControladorBotonesCorreo implements ActionListener {
 
 	private ModeloTextoInterfaz textos;
 	private ArrayList<String> paths = new ArrayList<>();
 
+	/**
+	 * Este constructor crea los textos que se usan en la clase
+	 */
 	public ControladorBotonesCorreo() {
 		super();
 		textos = new ModeloTextoInterfaz();
 	}
 
+	/**
+	 * 
+	 * Invoked when an action occurs.
+	 * 
+	 * @param
+	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		String boton = e.getActionCommand();
@@ -57,14 +85,18 @@ public class ControladorBotonesCorreo implements ActionListener {
 			// controladores.ControladorBotonesFtp.email.setVisible(false);
 
 		} else if (e.getSource().equals(InterfazEscribirEmail.getListaContactos())) {
-			InterfazEscribirEmail.setTextFieldPara(InterfazEscribirEmail.getEmails()
-					.get(InterfazEscribirEmail.getListaContactos().getSelectedIndex()));
+			if (InterfazEscribirEmail.getTextFieldPara().getText().trim().isEmpty()) {
+				InterfazEscribirEmail.setTextFieldPara(InterfazEscribirEmail.getEmails()
+						.get(InterfazEscribirEmail.getListaContactos().getSelectedIndex()));
+			} else {
+				InterfazEscribirEmail.setTextFieldPara(
+						InterfazEscribirEmail.getTextFieldPara().getText().trim() + ", " + InterfazEscribirEmail
+								.getEmails().get(InterfazEscribirEmail.getListaContactos().getSelectedIndex()));
+			}
 
 		} else if (boton.equals(textos.getTituloBotonAdjuntar())) {
 			JFileChooser adjuntar = new JFileChooser();
-			if (adjuntar.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
-
-			}
+			adjuntar.showOpenDialog(null);
 			adjuntar.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
 			paths.add(adjuntar.getSelectedFile().getAbsolutePath());
 			InterfazEscribirEmail.getListaAdjuntos().addItem(adjuntar.getSelectedFile().getName());
@@ -84,11 +116,14 @@ public class ControladorBotonesCorreo implements ActionListener {
 					InterfazEscribirEmail.getTextFieldAsunto().getText(),
 					InterfazEscribirEmail.getAreaTexto().getText(), paths);
 			conecEnviar.conectar();
-			conecEnviar.enviarMensaje();
-			JOptionPane.showConfirmDialog(null, textos.getEnviadoConExito(), textos.getMensajeEnviado(),
-					JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE); ///////////////////////// MODIFICADO
-		} else if (boton.equals(textos.getTituloAyudaSobre())) {
-			JOptionPane.showMessageDialog(null, "En construccion...", null, JOptionPane.ERROR_MESSAGE);
+			if (conecEnviar.enviarMensaje()) {
+				JOptionPane.showConfirmDialog(null, textos.getEnviadoConExito(), textos.getMensajeEnviado(),
+						JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE);
+				InterfazEscribirEmail.ventana.dispose();
+			} else {
+				JOptionPane.showConfirmDialog(null, textos.getNoEnviado(), textos.getErrorEnvio(),
+						JOptionPane.DEFAULT_OPTION, JOptionPane.ERROR_MESSAGE);
+			}
 		}
 	}
 }
