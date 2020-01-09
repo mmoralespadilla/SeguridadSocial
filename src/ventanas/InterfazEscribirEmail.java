@@ -190,7 +190,7 @@ public class InterfazEscribirEmail extends JDialog {
 	 * 
 	 * This method fills with text the help menu
 	 * 
-	 * @return ArrayList<String> - El texto de la ayuda del menu | 
+	 * @return ArrayList<String> - El texto de la ayuda del menu | Menu text help
 	 */
 	private ArrayList<String> llenarListaTituloAyuda() {
 		ArrayList<String> titulosMenuItemAyuda = new ArrayList();
@@ -203,7 +203,7 @@ public class InterfazEscribirEmail extends JDialog {
 	 * 
 	 * This method fills with text the actions from the menu
 	 * 
-	 * @return ArrayList<String> - El texto de las acciones del menu
+	 * @return ArrayList<String> - El texto de las acciones del menu | text of the menu's buttons
 	 */
 	private ArrayList<String> llenarListaTituloAcciones() {
 		ArrayList<String> titulosMenuItemAcciones = new ArrayList();

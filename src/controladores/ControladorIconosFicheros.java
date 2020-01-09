@@ -7,6 +7,13 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 
+/**
+ * Esta clase asigna diferentes iconos a los archivos |
+ * 
+ * This class assign icons to the files
+ * 
+ *
+ */
 public class ControladorIconosFicheros {
 
 	private final static String avi = "avi.png";
@@ -43,6 +50,13 @@ public class ControladorIconosFicheros {
 	private final static String zip = "zip.png";
 	private final static String generico = "documentos.png";
 
+	/**
+	 * Este metodo formatea una imagen para introducirla en un JTable
+	 * 
+	 *  This method format an image for insert in a JTable
+	 * @param extension String - Tipo de archivo | File type
+	 * @return JLabel - Devuelve un JLabel con una imagen | return a JLabel with a image
+	 */
 	public static JLabel recuperarIcono(String extension) {
 		// Cargar Imagen
 		JLabel foto = new JLabel();
@@ -56,13 +70,20 @@ public class ControladorIconosFicheros {
 		}
 		ImageIcon icon = new ImageIcon(rutaImagen);
 		foto.setHorizontalAlignment(SwingConstants.CENTER);
-		
+
 		Icon icono = new ImageIcon(
 				icon.getImage().getScaledInstance(foto.getWidth(), foto.getHeight(), Image.SCALE_DEFAULT));
 		foto.setIcon(icono);
 		return foto;
 	}
 
+	/**
+	 * Metodo que recupera la ruta de la imagen segun la extension
+	 * 
+	 * This method recover the path of the image depending of the file's typ e
+	 * @param extension String - Tipo de extension | Extension type
+	 * @return Devuelve una ruta | return a path
+	 */
 	public static String rutaCorrespondiente(String extension) {
 		String ruta = "iconos_archivos\\";
 

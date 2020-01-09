@@ -1,7 +1,5 @@
 package ftpCliente;
 
-import java.util.Date;
-
 import ventanas.InterfazLogin;
 
 public class Main {

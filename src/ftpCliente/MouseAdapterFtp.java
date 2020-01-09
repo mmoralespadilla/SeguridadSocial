@@ -11,7 +11,7 @@ import org.apache.commons.net.ftp.FTPClient;
 import ventanas.InterfazFtp;
 
 /**
- * Clase para añadir un evento de raton a la tabla de la interfaz FTP para viajar por el contenido de las carpetas
+ * Clase para anadir un evento de raton a la tabla de la interfaz FTP para viajar por el contenido de las carpetas
  * 
  * @author AlvaroFernandez
  *

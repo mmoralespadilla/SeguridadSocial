@@ -60,11 +60,11 @@ public class CreadorInterfaz {
 	 * 
 	 * This method create buttons for the interface
 	 * 
-	 * @param titulos     ArrayList <String> - Lista de los titulos
-	 * @param y           int - Coordenada vertical donde para situar los botones
-	 * @param panel       JPanel - Panel contenedor de los botones
-	 * @param tipoControl int - Numero indicativo para saber en que tipo de ventana
-	 *                    seran introducidos los botones
+	 * @param titulos     ArrayList <String> - Lista de los titulos | Title's list
+	 * @param y           int - Coordenada vertical donde para situar los botones |  Vertical coordination where the button will be
+	 * @param panel       JPanel - Panel contenedor de los botones  | panel container of buttons
+	 * @param tipoControl int - Numero indicativo para saber en que tipo de ventana 
+	 *                    seran introducidos los botones | Number that indicates the kind of view that the buttons will be inserted
 	 */
 	public void crearBotones(ArrayList<String> titulos, int y, JPanel panel, int tipoControl) {
 		for (int i = 0; i < titulos.size(); i++) {
@@ -88,11 +88,11 @@ public class CreadorInterfaz {
 	 * 
 	 * This method enable the actionlistener in the buttons
 	 * 
-	 * @param titulo  String - Texto que contiene el boton
-	 * @param x       int - Coordenada horizontal del boton
-	 * @param y       int - Coordenada vertical del boton
-	 * @param anchura - Tamaño del boton a lo ancho
-	 * @return JButton - El boton creado
+	 * @param titulo  String - Texto que contiene el boton | Button's text
+	 * @param x       int - Coordenada horizontal del boton | Button's horizontal coordinate
+	 * @param y       int - Coordenada vertical del boton | Button's vertical coordinate
+	 * @param anchura - Tamano del boton a lo ancho  | Button's size
+	 * @return JButton - El boton creado | Create button
 	 */
 	public JButton elaborarBoton(String titulo, int x, int y, int anchura) {
 		JButton boton = new JButton(titulo);
@@ -108,10 +108,10 @@ public class CreadorInterfaz {
 	 * 
 	 * This method create the buttons
 	 * 
-	 * @param titulo String - Texto que contiene el boton
-	 * @param x      int - Coordenada horizontal del boton
-	 * @param y      int - Coordenada vertical del boton
-	 * @param panel  JPanel - Panel donde seran añadidos los botones
+	 * @param titulo  String - Texto que contiene el boton | Button's text
+	 * @param x       int - Coordenada horizontal del boton | Button's horizontal coordinate
+	 * @param y       int - Coordenada vertical del boton | Button's vertical coordinate
+	 * @param panel  JPanel - Panel donde seran anadidos los botones  | Panel where the buttons will be added
 	 */
 	public void crearBotones(String titulo, int x, int y, JPanel panel) {
 		JButton boton = new JButton(titulo);
@@ -126,9 +126,9 @@ public class CreadorInterfaz {
 	 * 
 	 * This method create the menu
 	 * 
-	 * @param textoMenu String - Texto que contendra el menu
-	 * @param barraMenu JMenuBar - Barra de menu donde sera añadido el JMenu
-	 * @return JMenu - El componente creado
+	 * @param textoMenu String - Texto que contendra el menu | Texts that the menu will contain
+	 * @param barraMenu JMenuBar - Barra de menu donde sera anadido el JMenu | bar that will added in the JMenu
+	 * @return JMenu - El componente creado | Component create
 	 */
 	public JMenu crearMenu(String textoMenu, JMenuBar barraMenu) {
 		JMenu menu = new JMenu(textoMenu);
@@ -142,10 +142,10 @@ public class CreadorInterfaz {
 	 * 
 	 * This method create objects in the menu
 	 * 
-	 * @param titulos     ArrayList<String> - Lista de nombres de los items
-	 * @param menu        JMenu - Menu donde seran añadidos los items
-	 * @param tipoControl int - Numero indicativo para saber en que tipo de ventana
-	 *                    seran introducidos los botones
+	 * @param titulos     ArrayList<String> - Lista de nombres de los items |Item's name list
+	 * @param menu        JMenu - Menu donde seran anadidos los items | menu where  items will be added
+	 * @param tipoControl int - Numero indicativo para saber en que tipo de ventana 
+	 *                    seran introducidos los botones | Number that indicate what kind of view will be the buttons added
 	 */
 	public void crearItems(ArrayList<String> titulos, JMenu menu, int tipoControl) {
 		for (int i = 0; i < titulos.size(); i++) {
@@ -166,7 +166,7 @@ public class CreadorInterfaz {
 	 * 
 	 * This method sets the properties of the menu
 	 * 
-	 * @param menu JMenu - Menu que sera modificado
+	 * @param menu JMenu - Menu que sera modificado | menu that will be modified
 	 */
 	public void ponerPropiedadesMenu(JMenu menu) {
 		Font fuenteTitulo = new Font("Dialog", Font.BOLD, 14);
@@ -180,7 +180,7 @@ public class CreadorInterfaz {
 	 * 
 	 * Method that configure the properties of an object
 	 * 
-	 * @param item JMenuItem - Item que sera modificado
+	 * @param item JMenuItem - Item que sera modificado | Item that will be modified
 	 */
 	public void ponerPropiedadesMenuItem(JMenuItem item) {
 		Font fuenteTitulo = new Font("Dialog", Font.BOLD, 13);

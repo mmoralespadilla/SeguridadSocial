@@ -172,8 +172,11 @@ public class ConexionMysql {
 	
 	/**
 	 * Metodo para recuperar los movimientos de un usuario en el ftp
-	 * @param nombreUsuario String - Nombre del usuario que sera buscado en la base de datos
-	 * @param dtm DefaultTableModer - Modelo de la tabla donde sse insertaran los datos
+	 * 
+	 * This method recover all movement from an user in the FTP
+	 * 
+	 * @param nombreUsuario String - Nombre del usuario que sera buscado en la base de datos | User's name from the MySQL
+	 * @param dtm DefaultTableModer - Modelo de la tabla donde se insertaran los datos | Table's model where the data will be inserted
 	 */
 	public static void recargarTablaHistorial(String nombreUsuario, DefaultTableModel dtm) {
 		if(iniciarConexion()) {

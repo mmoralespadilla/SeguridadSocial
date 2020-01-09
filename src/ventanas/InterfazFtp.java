@@ -61,7 +61,7 @@ public class InterfazFtp extends JFrame {
 	
 	/**
 	 * Creacion del frame
-	 * @param ftp ControladorFtp - Objeto que contiene la conexion y datos del usuario Ftp
+	 * @param ftp ControladorFtp - Objeto que contiene la conexion y datos del usuario Ftp | Object that contain the connection and the user data for the FTP
 	 */
 	public InterfazFtp(ControladorFtp ftp) {
 		// Actualizar
@@ -204,6 +204,12 @@ public class InterfazFtp extends JFrame {
 
 	}
 
+	/**
+	 * metodo que llena un arrayList con los titulos 
+	 * 
+	 * This method fill an arraylist with the titles
+	 * @return ArrayList<String> - Devuelve un arrayList | return an arrayList<String>
+	 */
 	private ArrayList<String> llenarListaTituloServidor() {
 		ArrayList<String> titulosMenuItemServidor = new ArrayList();
 		titulosMenuItemServidor.add(modeloTexto.getTituloServidorInfor());

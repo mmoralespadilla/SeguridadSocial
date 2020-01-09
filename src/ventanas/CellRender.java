@@ -8,7 +8,9 @@ import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableCellRenderer;
 
 /**
- * Clase extendida de CellRenderer para modificar las celdas de una tabla
+ * Clase extendida de CellRenderer para modificar las celdas de una tabla | 
+ * 
+ * Extended class that modify the table's cell
  * 
  * @author AlvaroFernandez
  *

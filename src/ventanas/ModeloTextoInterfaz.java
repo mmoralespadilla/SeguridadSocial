@@ -1,5 +1,11 @@
 package ventanas;
 
+/**
+ *Clase que contiene los textos del programa
+ *
+ * This class contains the app's text
+ *
+ */
 public class ModeloTextoInterfaz {
 	
 	private String tituloLogin = "Login";
@@ -34,11 +40,11 @@ public class ModeloTextoInterfaz {
 	private String tituloBotonEnviar = "Enviar";
 	private String cabeceraContenido = "Contenido";
 	private String tituloBotonEliminar = "Eliminar adjunto";
-	private String tituloBotonAtras = "< Atrás";
+	private String tituloBotonAtras = "< Atrï¿½s";
 	private String cabeceraAsunto = "Asunto";
 	private String mensajeEnviado = "Mensaje enviado";
-	private String enviadoConExito = "El mensaje ha sido enviado con éxito";
-	private String errorEnvio = "Error de envío";
+	private String enviadoConExito = "El mensaje ha sido enviado con ï¿½xito";
+	private String errorEnvio = "Error de envï¿½o";
 	private String noEnviado = "No se ha podido enviar el correo, comprueba que has escrito el remitente correctamente";
 	private String cabeceraTipoArchivo = "Tipo";
 	private String direccionFtp = "Ip ftp";

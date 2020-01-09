@@ -16,7 +16,6 @@ import javax.swing.table.TableColumnModel;
  * Clase que crea una ventana con el historial
  * 
  * This class create view of historial
- * @author Miguel
  *
  */
 public class InterfazMostrarHistorial extends JDialog {

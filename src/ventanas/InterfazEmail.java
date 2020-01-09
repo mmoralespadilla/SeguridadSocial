@@ -55,23 +55,14 @@ public class InterfazEmail extends JDialog {
 	private static ModeloTextoInterfaz modeloTexto;
 	private static CreadorInterfaz creacion;
 	private ftpCliente.HiloRecargaEmail recargaAuto;
-	/**
-	 * Launch the application.
-	 */
-	/*
-	 * public static void main(String[] args) { try { InterfazEmail frame = new
-	 * InterfazEmail("iamsegsoctrustme@gmail.com", "segsoc123");
-	 * frame.setVisible(true); } catch (Exception e) { /////////////////////////
-	 * MODIFICADO TODO EL METODO PARA PROBARLO MEJOR e.printStackTrace(); } }
-	 */
 	
 	/**
 	 * Este constructor guarda el usuario y la contrase�a del correo que va a
 	 * administrar y crea la ventana
 	 *
 	 * This constructor save user and password that the email and create a window
-	 * @param user String - El correo que se va a administrar
-	 * @param pass String - La contrasena del correo que se va a administrar
+	 * @param user String - El correo que se va a administrar | email that will be manage
+	 * @param pass String - La contrasena del correo que se va a administrar | email's password
 	 */
 	public InterfazEmail(String user, String pass) {
 		addWindowListener(new WindowAdapter() {

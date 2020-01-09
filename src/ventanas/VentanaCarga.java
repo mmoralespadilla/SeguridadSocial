@@ -5,6 +5,11 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JWindow;
 
+/*
+ * Clase que carga la ventana
+ * 
+ * Class that loads the frame
+ */
 public class VentanaCarga extends Thread{
 	JWindow ventana;
 	JLabel label;
