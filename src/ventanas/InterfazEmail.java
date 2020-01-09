@@ -19,7 +19,7 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
-
+  
 import recibocorreo.MenuCorreo;
 
 import javax.swing.JMenuBar;
@@ -32,6 +32,15 @@ import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JEditorPane;
 
+/**
+ * Esta clase Contiene la ventana con la que se administra el correo
+ * 
+ * @author Diego Santos
+ * @author Álvaro Fernández
+ * @author Víctor López
+ * @author Inma Jiménez
+ * @author Miguel Morales
+ */
 public class InterfazEmail extends JDialog {
 
 	private static String user = "iamsegsoctrustme@gmail.com";
@@ -45,19 +54,18 @@ public class InterfazEmail extends JDialog {
 	/**
 	 * Launch the application.
 	 */
-	
-	public static void main(String[] args) {
-	/*	try {
-			InterfazEmail frame = new InterfazEmail("iamsegsoctrustme@gmail.com", "segsoc123");
-			frame.setVisible(true);
-		} catch (Exception e) {	///////////////////////// MODIFICADO TODO EL METODO PARA PROBARLO MEJOR
-			e.printStackTrace();
-		}
-		*/
-	}
-
+	/*
+	 * public static void main(String[] args) { try { InterfazEmail frame = new
+	 * InterfazEmail("iamsegsoctrustme@gmail.com", "segsoc123");
+	 * frame.setVisible(true); } catch (Exception e) { /////////////////////////
+	 * MODIFICADO TODO EL METODO PARA PROBARLO MEJOR e.printStackTrace(); } }
+	 */
 	/**
-	 * Create the frame.
+	 * Este constructor guarda el usuario y la contraseña del correo que va a
+	 * administrar y crea la ventana
+	 * 
+	 * @param user El correo que se va a administrar
+	 * @param pass La contraseña del correo que se va a administrar
 	 */
 	public InterfazEmail(String user, String pass) {
 		this.user = user;
@@ -138,12 +146,22 @@ public class InterfazEmail extends JDialog {
 		ventanaCarga.getVentana().dispose();
 	}
 
+	/**
+	 * Este método rellena el texto de la ayuda del menú
+	 * 
+	 * @return El texto de la ayuda del menú
+	 */
 	private ArrayList<String> llenarListaTituloAyuda() {
 		ArrayList<String> titulosMenuItemAyuda = new ArrayList();
 		titulosMenuItemAyuda.add(modeloTexto.getTituloAyudaSobre());
 		return titulosMenuItemAyuda;
 	}
 
+	/**
+	 * Este método rellena el texto de las acciones del menú
+	 * 
+	 * @return El texto de las acciones del menú
+	 */
 	private ArrayList<String> llenarListaTituloAcciones() {
 		ArrayList<String> titulosMenuItemAcciones = new ArrayList();
 		titulosMenuItemAcciones.add(modeloTexto.getTituloAccionesRefrescar());
@@ -165,6 +183,7 @@ public class InterfazEmail extends JDialog {
 
 	/**
 	 * Metodo que vacia la tabla, y la vuelve a rellenar con los datos
+	 * 
 	 */
 	public static void recargarTabla() {
 		vaciarTabla();

@@ -15,7 +15,7 @@ public class ModeloTextoInterfaz {
 	private String tituloCrearCarpeta = "Crear carpeta";
 	private String tituloCambiarNombre = "Cambiar nombre";
 	private String tituloServidor = "Servidor";
-	private String tituloServidorInfor = "Informacion FTP";
+	private String tituloServidorInfor = "Informaciï¿½n FTP";
 	private String tituloServidorHistorial = "Historial de movimientos";
 	private String tituloAyuda = "Ayuda";
 	private String tituloAyudaSobre = "Sobre...";
@@ -36,13 +36,15 @@ public class ModeloTextoInterfaz {
 	private String tituloBotonEliminar = "Eliminar adjunto";
 	private String tituloBotonAtras = "< Atrás";
 	private String cabeceraAsunto = "Asunto";
-	private String mensajeEnviado = "Mensaje enviado"; ///////////////////////// MODIFICADO
-	private String enviadoConExito = "El mensaje ha sido enviado con exito"; ///////////////////////// MODIFICADO
+	private String mensajeEnviado = "Mensaje enviado";
+	private String enviadoConExito = "El mensaje ha sido enviado con éxito";
+	private String errorEnvio = "Error de envío";
+	private String noEnviado = "No se ha podido enviar el correo, comprueba que has escrito el remitente correctamente";
 	private String cabeceraTipoArchivo = "Tipo";
 	public String getTituloEliminar() {
 		return tituloEliminar;
 	}
-
+  
 	public String getTituloBotonAtras() {
 		return tituloBotonAtras;
 	}
@@ -153,14 +155,6 @@ public class ModeloTextoInterfaz {
 
 	public String getTituloAcciones() {
 		return tituloAcciones;
-	}
-
-	public String getCabeceraTipoArchivo() {
-		return cabeceraTipoArchivo;
-	}
-
-	public void setCabeceraTipoArchivo(String cabeceraTipoArchivo) {
-		this.cabeceraTipoArchivo = cabeceraTipoArchivo;
 	}
 
 	public void setTituloAcciones(String tituloAcciones) {
@@ -338,10 +332,26 @@ public class ModeloTextoInterfaz {
 	public void setEnviadoConExito(String enviadoConExito) {
 		this.enviadoConExito = enviadoConExito;
 	}
-	
 
-	
-	
-	
+	public String getErrorEnvio() {
+		return errorEnvio;
+	}
+
+	public void setErrorEnvio(String errorEnvio) {
+		this.errorEnvio = errorEnvio;
+	}
+
+	public String getNoEnviado() {
+		return noEnviado;
+	}
+
+	public void setNoEnviado(String noEnviado) {
+		this.noEnviado = noEnviado;
+	}
+
+	public String getCabeceraTipoArchivo() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 }

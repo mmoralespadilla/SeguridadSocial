@@ -11,25 +11,45 @@ import javax.mail.NoSuchProviderException;
 import javax.mail.Session;
 import javax.mail.Store;
 
+/**
+ * Esta clase conecta con el correo y descarga los mensajes
+ * 
+ * @author Diego Santos
+ * @author Álvaro Fernández
+ * @author Víctor López
+ * @author Inma Jiménez
+ * @author Miguel Morales
+ */
 public class MenuCorreo {
-
-
+ 
 	private static Folder folder;
 	private static Store store;
 	private ArrayList<String> remitentes = new ArrayList<>();
 	private ArrayList<String> asuntos = new ArrayList<>();
 	private static String user;
 	private static String pass;
-	
+
+	/**
+	 * Este constructor recibe el correo y la contraseña a usar
+	 * 
+	 * @param user Correo del usuario
+	 * @param pass Contraseña del correo
+	 */
 	public MenuCorreo(String user, String pass) {
 		this.user = user;
 		this.pass = pass;
 	}
-	
+
+	/**
+	 * Constructor vacío para poder crear la clase sin usar parámetros
+	 */
 	public MenuCorreo() {
-		
+
 	}
-	
+
+	/**
+	 * Este método asigna las propiedades de la clase, conecta con el correo y descarga los mensajes
+	 */
 	public void conectar() {
 		try {
 			Properties prop = new Properties();
@@ -56,7 +76,11 @@ public class MenuCorreo {
 			e.printStackTrace();
 		}
 	}
-	
+
+	/**
+	 * Esta función guarda la lista de mensajes, con sus remitentes y asuntos aparte
+	 * @return Todos los mensajes guardados
+	 */
 	public Message[] listarMensajes() {
 		Message[] mensajes = null;
 		try {
@@ -71,15 +95,17 @@ public class MenuCorreo {
 		} catch (MessagingException e) {
 			System.err.println(e.getMessage());
 		}
-		/*for(String remitente : remitentes)
-			System.out.println(remitente);
-		int contador = 1;
-		for(String asunto : asuntos) {
-			System.out.println(contador++ + ": " + asunto);
-		}*/
+		/*
+		 * for(String remitente : remitentes) System.out.println(remitente); int
+		 * contador = 1; for(String asunto : asuntos) { System.out.println(contador++ +
+		 * ": " + asunto); }
+		 */
 		return mensajes;
 	}
-		
+
+	/**
+	 * Este método cierra la conexión con el correo
+	 */
 	public void cerrarConexion() {
 		try {
 			store.close();
@@ -112,5 +138,5 @@ public class MenuCorreo {
 	public void setPass(String pass) {
 		this.pass = pass;
 	}
-	
+
 }

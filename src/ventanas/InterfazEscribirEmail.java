@@ -39,8 +39,19 @@ import javax.swing.JComboBox;
 import javax.swing.JDialog;
 import javax.swing.JEditorPane;
 
+/**
+ * 
+ * Esta clase contiene la ventana con la que se escribe y envia el correo
+ * 
+ * @author Diego Santos
+ * @author Álvaro Fernández
+ * @author Víctor López
+ * @author Inma Jiménez
+ * @author Miguel Morales
+ *
+ */
 public class InterfazEscribirEmail extends JDialog {
-
+  
 	private JPanel contentPane;
 	private DefaultTableModel dtm;
 	private static JTextArea areaTexto;
@@ -51,12 +62,11 @@ public class InterfazEscribirEmail extends JDialog {
 	private static JComboBox listaAdjuntos;
 	private static JComboBox listaContactos;
 	private static ArrayList<String> emails = new ArrayList<>();
-	private static JDialog ventana;
+	public static JDialog ventana;
 
 	/**
 	 * Launch the application.
 	 */
-	/*
 	public static void main(String[] args) {
 		try {
 			InterfazEscribirEmail frame = new InterfazEscribirEmail();
@@ -65,9 +75,9 @@ public class InterfazEscribirEmail extends JDialog {
 			e.printStackTrace();
 		}
 	}
-*/
+
 	/**
-	 * Create the frame.
+	 * Este constructor crea la ventana con la que se trabaja
 	 */
 	public InterfazEscribirEmail() {
 		modeloTexto = new ModeloTextoInterfaz();
@@ -171,12 +181,22 @@ public class InterfazEscribirEmail extends JDialog {
 
 	}
 
+	/**
+	 * Este método rellena el texto de la ayuda del menú
+	 * 
+	 * @return El texto de la ayuda del menú
+	 */
 	private ArrayList<String> llenarListaTituloAyuda() {
 		ArrayList<String> titulosMenuItemAyuda = new ArrayList();
 		titulosMenuItemAyuda.add(modeloTexto.getTituloAyudaSobre());
 		return titulosMenuItemAyuda;
 	}
 
+	/**
+	 * Este método rellena el texto de las acciones del menú
+	 * 
+	 * @return El texto de las acciones del menú
+	 */
 	private ArrayList<String> llenarListaTituloAcciones() {
 		ArrayList<String> titulosMenuItemAcciones = new ArrayList();
 		titulosMenuItemAcciones.add(modeloTexto.getTituloBotonAdjuntar());

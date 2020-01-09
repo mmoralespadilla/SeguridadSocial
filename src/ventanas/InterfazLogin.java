@@ -153,7 +153,7 @@ public class InterfazLogin extends JFrame {
 		panelLogin.add(btnLogin);
 		
 		rutaImagen = "imagen\\logo.png";
-
+  
 		try {
 			image = ImageIO.read(new File(rutaImagen));
 			JLabel Imagen = new JLabel(new ImageIcon(image));

@@ -27,7 +27,7 @@ public class VentanaCarga extends Thread{
 		ventana.pack();
 		ventana.setLocationRelativeTo(null);
 		ventana.setVisible(true);
-		
+	  	
 	}
 	
 	public void run() {

@@ -126,7 +126,7 @@ public class ControladorBotonesFtp implements ActionListener {
 						archivo = (String) InterfazFtp.dtm.getValueAt(archivos[i], 1);
 						ftp.borrarCarpeta(archivo);
 					}
-				}
+				}  
 
 			} catch (ArrayIndexOutOfBoundsException e1) {
 				System.out.println("Seleccione un elemento de la tabla");

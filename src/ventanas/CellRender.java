@@ -20,7 +20,7 @@ public class CellRender extends DefaultTableCellRenderer {
 		 return label;
 		 } else {
 		 return super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
-		 }
+		 } 
 		 }
 		 public void fillColor(JTable t, JLabel l, boolean isSelected) {
 		 if (isSelected) {

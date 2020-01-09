@@ -155,7 +155,7 @@ public class ControladorFtp {
 		} catch (IOException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
-		}
+		} 
 		elegir.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
 		int returnF = elegir.showDialog(null, "Descargar..");
 		if (returnF == JFileChooser.APPROVE_OPTION) {

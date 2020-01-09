@@ -11,7 +11,7 @@ public class HiloRecargaEmail extends Thread{
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
-			}
+			} 
 			InterfazEmail.recargarTabla();
 		}
 	}

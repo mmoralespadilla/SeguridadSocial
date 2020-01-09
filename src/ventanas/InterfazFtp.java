@@ -170,7 +170,7 @@ public class InterfazFtp extends JFrame {
 		columnModel.getColumn(1).setResizable(false);
 		scrollPane.getViewport().setBackground(Color.WHITE);
 		scrollPane.setViewportView(table);
-
+  
 		JButton btnAtras = creador.elaborarBoton(modeloTexto.getTituloBotonAtras(), 460, 20, 105);
 		lblUsuario.setText("Usuario: " + ftp.getUser());
 		contentPane.add(btnAtras);

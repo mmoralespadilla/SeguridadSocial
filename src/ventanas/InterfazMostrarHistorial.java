@@ -34,7 +34,7 @@ public class InterfazMostrarHistorial extends JDialog {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-	}
+	}  
 
 	/**
 	 * Create the dialog.

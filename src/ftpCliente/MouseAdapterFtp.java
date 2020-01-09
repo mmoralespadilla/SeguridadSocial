@@ -17,7 +17,7 @@ import ventanas.InterfazFtp;
  *
  */
 public class MouseAdapterFtp implements MouseListener {
-
+ 
 	private ControladorFtp ftp;
 	private JLabel lblRuta;
 

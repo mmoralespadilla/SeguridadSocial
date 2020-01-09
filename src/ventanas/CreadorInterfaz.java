@@ -33,7 +33,7 @@ public class CreadorInterfaz {
 	
 	public CreadorInterfaz() {
 		controlBotonesCorreo = new ControladorBotonesCorreo();		
-	}
+	} 
 		
 	public void crearBotones(ArrayList <String> titulos, int y, JPanel panel, int tipoControl) {	
 		for (int i = 0 ; i<titulos.size(); i++) {			
