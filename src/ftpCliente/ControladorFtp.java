@@ -77,7 +77,8 @@ public class ControladorFtp {
 	public void borrarCarpeta(String nombreCarpeta) {
 		try {
 			FTPFile f = cliente.mlistFile(nombreCarpeta);
-			if(JOptionPane.showConfirmDialog(null, "¿Seguro que quiere eliminar?") == 0){
+			
+				
 				if (f.isDirectory()) {
 					if (cliente.removeDirectory(nombreCarpeta)) {
 						ConexionMysql.insertarMovimiento(user, "Borrar carpeta", "Carpeta " + nombreCarpeta + " borrada");
@@ -107,7 +108,6 @@ public class ControladorFtp {
 						System.out.println("Fichero no existe.");
 					}
 				}
-			}
 			
 		} catch (IOException e) {
 			System.out.println("ERROR E/S");

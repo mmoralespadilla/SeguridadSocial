@@ -5,9 +5,13 @@ import java.awt.Color;
 import java.awt.ComponentOrientation;
 import java.awt.EventQueue;
 import java.awt.Font;
+import java.awt.Image;
+import java.awt.Rectangle;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.image.BufferedImage;
+import java.io.File;
 import java.io.IOException;
 import java.sql.ClientInfoStatus;
 import java.text.Normalizer.Form;
@@ -28,6 +32,9 @@ import javax.swing.border.LineBorder;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
+import javax.swing.table.TableColumnModel;
+
+import org.apache.commons.io.FilenameUtils;
 
 import ftpCliente.ControladorFtp;
 import ftpCliente.MouseAdapterFtp;
@@ -35,6 +42,9 @@ import ftpCliente.MouseAdapterFtp;
 import javax.swing.JMenuBar;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
+import javax.imageio.ImageIO;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.event.ActionEvent;
 
@@ -47,7 +57,6 @@ public class InterfazFtp extends JFrame {
 	private static ModeloTextoInterfaz modeloTexto;
 	private static CreadorInterfaz creador;
 	private JLabel lblRuta;
-	
 
 	/**
 	 * Create the frame.
@@ -69,7 +78,7 @@ public class InterfazFtp extends JFrame {
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 855, 547);
-		
+
 		// Menu
 		JMenuBar menuBar = new JMenuBar();
 		menuBar.setBackground(new java.awt.Color(30, 105, 90));
@@ -82,16 +91,16 @@ public class InterfazFtp extends JFrame {
 		// File menu
 		JMenu mnArchivo = creador.crearMenu(modeloTexto.getTituloArchivo(), menuBar);
 		JMenuItem mnCambioUsuario = new JMenuItem(modeloTexto.getTituloCambiarUsuario());
-		Font fuenteTituloItem = new Font("Dialog", Font.BOLD, 13);	
+		Font fuenteTituloItem = new Font("Dialog", Font.BOLD, 13);
 		mnCambioUsuario.setBackground(new java.awt.Color(218, 230, 228));
-		mnCambioUsuario.setFont(fuenteTitulo);	
+		mnCambioUsuario.setFont(fuenteTitulo);
 		mnArchivo.add(mnCambioUsuario);
 		mnCambioUsuario.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				dispose();		
+				dispose();
 				InterfazLogin login = new InterfazLogin();
-				login.setVisible(true);				
+				login.setVisible(true);
 			}
 		});
 
@@ -145,13 +154,20 @@ public class InterfazFtp extends JFrame {
 				return false;
 			}
 		};
-		
+		table.setDefaultRenderer(Object.class,new CellRender());
+	
 		MouseAdapterFtp adapterTable = new MouseAdapterFtp(ftp, lblRuta);
 		table.addMouseListener(adapterTable);
 		table.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);
 		// Cabeceras de la tabla
+		dtm.addColumn(modeloTexto.getCabeceraTipoArchivo());
 		dtm.addColumn(modeloTexto.getTituloCabeceraTabla());
-
+		TableColumnModel columnModel = table.getColumnModel();
+		table.setRowHeight(20);
+		columnModel.getColumn(0).setPreferredWidth(100);
+		columnModel.getColumn(0).setResizable(false);
+		columnModel.getColumn(1).setPreferredWidth(800);
+		columnModel.getColumn(1).setResizable(false);
 		scrollPane.getViewport().setBackground(Color.WHITE);
 		scrollPane.setViewportView(table);
 
@@ -215,9 +231,30 @@ public class InterfazFtp extends JFrame {
 			e.printStackTrace();
 		}
 		for (int i = 0; i < ftp.getFicheros().length; i++) {
-			Object[] row = { ftp.getFicheros()[i].getName() };
+			String nomFichero = ftp.getFicheros()[i].getName();
+			String extension = FilenameUtils.getExtension(nomFichero);
+			
+			//Cargar Imagen
+			String rutaImagen = null;
+			if(extension.length() == 0) {
+				rutaImagen  = "imagen\\carpeta.png";
+			}else {
+				//rutaImagen = recuperarIconoArchivo(extension);
+			}
+			
+			
+			ImageIcon icon =new ImageIcon(rutaImagen);
+			JLabel foto=new JLabel();
+				foto.setHorizontalAlignment(SwingConstants.CENTER);
+			
+			foto.setSize(30,30);
+			Icon icono = new ImageIcon(icon.getImage().getScaledInstance(
+					foto.getWidth(), foto.getHeight(), Image.SCALE_DEFAULT));
+			foto.setIcon(icono);
+			
+			Object[] row = { foto, nomFichero };
 			dtm.addRow(row);
 		}
 	}
-	
+
 }

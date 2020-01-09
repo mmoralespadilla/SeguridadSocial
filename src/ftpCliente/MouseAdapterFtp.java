@@ -51,7 +51,7 @@ public class MouseAdapterFtp implements MouseListener {
 		if (e.getClickCount() == 2) {
 			
 			try {
-				ruta = (String) InterfazFtp.dtm.getValueAt(InterfazFtp.table.getSelectedRow(), 0);
+				ruta = (String) InterfazFtp.dtm.getValueAt(InterfazFtp.table.getSelectedRow(), 1);
 				ruta = ftp.getRutas().get(ftp.getPosicion()) + "/" + ruta;
 				ftp.getCliente().changeWorkingDirectory(ruta);
 				//Comprobar que el directorio del usuario a cambiado

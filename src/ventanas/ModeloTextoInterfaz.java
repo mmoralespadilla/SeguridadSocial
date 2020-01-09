@@ -38,6 +38,7 @@ public class ModeloTextoInterfaz {
 	private String cabeceraAsunto = "Asunto";
 	private String mensajeEnviado = "Mensaje enviado"; ///////////////////////// MODIFICADO
 	private String enviadoConExito = "El mensaje ha sido enviado con exito"; ///////////////////////// MODIFICADO
+	private String cabeceraTipoArchivo = "Tipo";
 	public String getTituloEliminar() {
 		return tituloEliminar;
 	}
@@ -152,6 +153,14 @@ public class ModeloTextoInterfaz {
 
 	public String getTituloAcciones() {
 		return tituloAcciones;
+	}
+
+	public String getCabeceraTipoArchivo() {
+		return cabeceraTipoArchivo;
+	}
+
+	public void setCabeceraTipoArchivo(String cabeceraTipoArchivo) {
+		this.cabeceraTipoArchivo = cabeceraTipoArchivo;
 	}
 
 	public void setTituloAcciones(String tituloAcciones) {
