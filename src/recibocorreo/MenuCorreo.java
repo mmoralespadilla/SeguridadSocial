@@ -14,10 +14,12 @@ import javax.mail.Store;
 /**
  * Esta clase conecta con el correo y descarga los mensajes
  * 
+ * This method connect with the email and download the messages
+ * 
  * @author Diego Santos
- * @author Álvaro Fernández
- * @author Víctor López
- * @author Inma Jiménez
+ * @author ï¿½lvaro Fernï¿½ndez
+ * @author Vï¿½ctor Lï¿½pez
+ * @author Inma Jimï¿½nez
  * @author Miguel Morales
  */
 public class MenuCorreo {
@@ -30,10 +32,12 @@ public class MenuCorreo {
 	private static String pass;
 
 	/**
-	 * Este constructor recibe el correo y la contraseña a usar
+	 * Este constructor recibe el correo y la contraseï¿½a a usar
 	 * 
-	 * @param user Correo del usuario
-	 * @param pass Contraseña del correo
+	 *  This constructor gets the emails and the password
+	 *  
+	 * @param user String - Correo del usuario | User's email
+	 * @param pass String - Contraseï¿½a del correo | User's password
 	 */
 	public MenuCorreo(String user, String pass) {
 		this.user = user;
@@ -41,14 +45,19 @@ public class MenuCorreo {
 	}
 
 	/**
-	 * Constructor vacío para poder crear la clase sin usar parámetros
+	 * Constructor vacï¿½o para poder crear la clase sin usar parï¿½metros
+	 * 
+	 * empty Constructor to create the class without parameters
 	 */
 	public MenuCorreo() {
 
 	}
 
 	/**
-	 * Este método asigna las propiedades de la clase, conecta con el correo y descarga los mensajes
+	 * Este mï¿½todo asigna las propiedades de la clase, conecta con el correo y descarga los mensajes | 
+	 * 
+	 * This method assings all properties for the class,connect with the email and download the messages
+	 * 
 	 */
 	public void conectar() {
 		try {
@@ -78,8 +87,11 @@ public class MenuCorreo {
 	}
 
 	/**
-	 * Esta función guarda la lista de mensajes, con sus remitentes y asuntos aparte
-	 * @return Todos los mensajes guardados
+	 * Esta funciï¿½n guarda la lista de mensajes, con sus remitentes y asuntos aparte
+	 * 
+	 * This method save a message list with its sender and its subject
+	 * 
+	 * @return Todos los mensajes guardados Message[] - Array con los mensajes | Array that contains messages
 	 */
 	public Message[] listarMensajes() {
 		Message[] mensajes = null;
@@ -104,7 +116,9 @@ public class MenuCorreo {
 	}
 
 	/**
-	 * Este método cierra la conexión con el correo
+	 * Este mï¿½todo cierra la conexiï¿½n con el correo
+	 * 
+	 * This method close the email's connection
 	 */
 	public void cerrarConexion() {
 		try {

@@ -33,12 +33,14 @@ import javax.swing.JDialog;
 import javax.swing.JEditorPane;
 
 /**
- * Esta clase Contiene la ventana con la que se administra el correo
+ * Esta clase Contiene la ventana con la que se administra el correo |
+ * 
+ * This class contains the view that manage the email
  * 
  * @author Diego Santos
- * @author Álvaro Fernández
- * @author Víctor López
- * @author Inma Jiménez
+ * @author ï¿½lvaro Fernï¿½ndez
+ * @author Vï¿½ctor Lï¿½pez
+ * @author Inma Jimï¿½nez
  * @author Miguel Morales
  */
 public class InterfazEmail extends JDialog {
@@ -60,12 +62,14 @@ public class InterfazEmail extends JDialog {
 	 * frame.setVisible(true); } catch (Exception e) { /////////////////////////
 	 * MODIFICADO TODO EL METODO PARA PROBARLO MEJOR e.printStackTrace(); } }
 	 */
+	
 	/**
-	 * Este constructor guarda el usuario y la contraseña del correo que va a
+	 * Este constructor guarda el usuario y la contraseï¿½a del correo que va a
 	 * administrar y crea la ventana
-	 * 
+	 *
+	 * This constructor save user and password that the email and create a window
 	 * @param user El correo que se va a administrar
-	 * @param pass La contraseña del correo que se va a administrar
+	 * @param pass La contraseï¿½a del correo que se va a administrar
 	 */
 	public InterfazEmail(String user, String pass) {
 		this.user = user;
@@ -147,9 +151,11 @@ public class InterfazEmail extends JDialog {
 	}
 
 	/**
-	 * Este método rellena el texto de la ayuda del menú
+	 * Este mï¿½todo rellena el texto de la ayuda del menï¿½
 	 * 
-	 * @return El texto de la ayuda del menú
+	 * This method fill the text of the help menu
+	 * 
+	 * @return ArrayList<String> - El texto de la ayuda del menï¿½ | text of the help menu
 	 */
 	private ArrayList<String> llenarListaTituloAyuda() {
 		ArrayList<String> titulosMenuItemAyuda = new ArrayList();
@@ -158,9 +164,11 @@ public class InterfazEmail extends JDialog {
 	}
 
 	/**
-	 * Este método rellena el texto de las acciones del menú
+	 * Este mï¿½todo rellena el texto de las acciones del menï¿½ |
 	 * 
-	 * @return El texto de las acciones del menú
+	 * This method fill with text all the action from the menu
+	 * 
+	 * @return ArrayList<String> - El texto de las acciones del menï¿½ | Text of the actions from menu
 	 */
 	private ArrayList<String> llenarListaTituloAcciones() {
 		ArrayList<String> titulosMenuItemAcciones = new ArrayList();
@@ -173,6 +181,8 @@ public class InterfazEmail extends JDialog {
 
 	/**
 	 * Metodo para vaciar la tabla
+	 * 
+	 * Method that empty the table
 	 */
 	public static void vaciarTabla() {
 		int a = table.getRowCount() - 1;
@@ -183,6 +193,8 @@ public class InterfazEmail extends JDialog {
 
 	/**
 	 * Metodo que vacia la tabla, y la vuelve a rellenar con los datos
+	 * 
+	 * Method that empty the table and fills it again with new data
 	 * 
 	 */
 	public static void recargarTabla() {

@@ -211,6 +211,8 @@ public class InterfazFtp extends JFrame {
 
 	/**
 	 * Metodo para vaciar la tabla
+	 * 
+	 * This method empty the table
 	 */
 	public static void vaciarTabla() {
 		int a = table.getRowCount() - 1;
@@ -221,6 +223,8 @@ public class InterfazFtp extends JFrame {
 
 	/**
 	 * Metodo que vacia la tabla, y la vuelve a rellenar con los datos de neodatis
+	 * 
+	 * This method empty the table and fill it with the data from neodatis
 	 */
 	public static void recargarTabla() {
 		vaciarTabla();

@@ -1,16 +1,9 @@
 package ventanas;
 
-import java.awt.BorderLayout;
-import java.awt.Font;
-import java.awt.geom.Ellipse2D;
-
 import javax.swing.ImageIcon;
-import javax.swing.JDialog;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JWindow;
-import javax.swing.border.EmptyBorder;
 
 public class VentanaCarga extends Thread{
 	JWindow ventana;

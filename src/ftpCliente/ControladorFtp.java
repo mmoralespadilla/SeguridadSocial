@@ -15,7 +15,15 @@ import javax.swing.JOptionPane;
 
 import org.apache.commons.net.ftp.FTPClient;
 import org.apache.commons.net.ftp.FTPFile;
-
+/**
+ * 
+ * Esta clase contiene los servicios que realiza el FTP
+ * 
+ * This class contains all services for the FTP
+ * 
+ * @author Miguel
+ *
+ */
 public class ControladorFtp {
 	private FTPClient cliente = new FTPClient();
 	private String user = "user", pass = "";
@@ -34,6 +42,13 @@ public class ControladorFtp {
 		rutas.add("/");
 	}
 
+	/**
+	 *Este metodo inicializa la conexion con el FTP |
+	 *
+	 * This method runs the connection with the FTP
+	 * 
+	 * @return boolean - True Si la conexion se ha realizado; False Si hay un error;True if the connection was done correctly; False if there is an error
+	 */
 	public boolean init() throws SocketException, IOException {
 		boolean conectado = false;
 		cliente.connect(host, 21);
@@ -43,6 +58,15 @@ public class ControladorFtp {
 		return conectado;
 	}
 
+	/**
+	 * Metodo para subir datos al FTP | 
+	 * 
+	 * This method uploads data at the FTP
+	 * 
+	 * @param archivo String - Nombre del fichero | File's name
+	 * @param nombre String - Nombre del fichero en el servidor | File's name in the server
+	 * @return boolean - True Si se ha realizado correctamente; False Si se ha habido un error; | True if it was done correctly; False if there is an error
+	 */
 	public boolean subir(String archivo, String nombre) {
 		BufferedInputStream in;
 		boolean subido = false;
@@ -61,6 +85,13 @@ public class ControladorFtp {
 		return subido;
 	}
 	
+	/**
+	 * Metodo que crea una carpeta en el servidor FTP
+	 * 
+	 * This method create a folder in the FTP
+	 * 
+	 * @param nombreCarpeta String - Nombre de la carpeta | Folder's name
+	 */
 	public void crearCarpeta(String nombreCarpeta) {
 		try {
 			if (cliente.makeDirectory(nombreCarpeta)) {
@@ -74,6 +105,12 @@ public class ControladorFtp {
 		}
 	}
 
+	/**
+	 * Metodo que borra una carpeta del servidor
+	 * 
+	 * This method delete a folder or file in the FTP
+	 * @param nombreCarpeta String - Nombre de Fichero/Carpeta | Folder/File 's name
+	 */
 	public void borrarCarpeta(String nombreCarpeta) {
 		try {
 			FTPFile f = cliente.mlistFile(nombreCarpeta);
@@ -115,6 +152,14 @@ public class ControladorFtp {
 		}
 	}
 
+	/**
+	 * Metodo que renombra un archivo
+	 * 
+	 * This method rename an archive.
+	 * 
+	 * @param nombreAntiguo String - Nombre antiguo del archivo | Old file name
+	 * @param nombreNuevo String - Nombre nuevo del archivo | New file name
+	 */
 	public void renombrar(String nombreAntiguo, String nombreNuevo) {
 		try {
 			cliente.rename(nombreAntiguo, nombreNuevo);
@@ -145,7 +190,14 @@ public class ControladorFtp {
 		}
 		fi.delete();
 	}
-	
+	/**
+	 * Metodo que descarga un archivo del FTP
+	 * 
+	 * This method download a archive from the FTP
+	 * 
+	 * @param nombre String - Nombre del fichero a descargar | name of the file that will be downloaded
+	 * @param elegir JFileChooser - Directorio donde se va a guardar | Directory that it will be stored
+	 */
 	public void descargar(String nombre, JFileChooser elegir) {
 		File fileDescargar;
 		String archivoDirDestino = "";

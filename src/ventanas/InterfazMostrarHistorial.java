@@ -1,23 +1,24 @@
 package ventanas;
 
-import java.awt.BorderLayout;
-import java.awt.FlowLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JDialog;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumnModel;
 import javax.swing.JLabel;
+import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.ListSelectionModel;
-import javax.swing.JScrollPane;
-import javax.swing.JComboBox;
-import java.awt.event.ActionListener;
-import java.io.IOException;
-import java.awt.event.ActionEvent;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableColumnModel;
 
+/**
+ * Clase que crea una ventana con el historial
+ * 
+ * This class create view of historial
+ * @author Miguel
+ *
+ */
 public class InterfazMostrarHistorial extends JDialog {
 	private static JTable table;
 	private static DefaultTableModel dtm;
@@ -89,6 +90,8 @@ public class InterfazMostrarHistorial extends JDialog {
 	
 	/**
 	 * Metodo para vaciar la tabla
+	 * 
+	 * This method empty the table
 	 */
 	public static void vaciarTabla() {
 		int a = table.getRowCount() - 1;
@@ -99,6 +102,8 @@ public class InterfazMostrarHistorial extends JDialog {
 
 	/**
 	 * Metodo que vacia la tabla, y la vuelve a rellenar con los datos de neodatis
+	 * 
+	 * this method empty the table and fill it with the data from neodatis
 	 */
 	public static void recargarTabla() {
 		vaciarTabla();

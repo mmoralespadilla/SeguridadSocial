@@ -4,19 +4,11 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
-import javax.mail.Flags;
-import javax.mail.Flags.Flag;
-import javax.mail.Folder;
-import javax.mail.Message;
-import javax.mail.MessagingException;
-import javax.mail.internet.MimeMessage;
 import javax.swing.JDialog;
 import javax.swing.JEditorPane;
 import javax.swing.JFileChooser;
-import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
-import javax.swing.text.DefaultEditorKit;
 
 import enviocorreo.EnvioCorreo;
 import recibocorreo.MenuCorreo;
@@ -26,13 +18,15 @@ import ventanas.InterfazEscribirEmail;
 import ventanas.ModeloTextoInterfaz;
 
 /**
- * Esta clase realiza las acciones correspondientes a los distintos botones
- * correspondientes al correo
+ * Esta clase realiza las acciones a los distintos botones
+ * correspondientes al correo | 
  * 
+ * This class implements each function for the buttons.
+ *  
  * @author Diego Santos
- * @author Álvaro Fernández
- * @author Víctor López
- * @author Inma Jiménez
+ * @author ï¿½lvaro Fernï¿½ndez
+ * @author Vï¿½ctor Lï¿½pez
+ * @author Inma Jimï¿½nez
  * @author Miguel Morales
  *
  */
@@ -42,7 +36,7 @@ public class ControladorBotonesCorreo implements ActionListener {
 	private ArrayList<String> paths = new ArrayList<>();
 
 	/**
-	 * Este constructor crea los textos que se usan en la clase
+	 * Este constructor crea los textos que se usan en la clase | Constructor that creates the texts for the class
 	 */
 	public ControladorBotonesCorreo() {
 		super();

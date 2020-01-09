@@ -43,10 +43,12 @@ import javax.swing.JEditorPane;
  * 
  * Esta clase contiene la ventana con la que se escribe y envia el correo
  * 
+ * This class contain the view that the user use to write and send email
+ * 
  * @author Diego Santos
- * @author Álvaro Fernández
- * @author Víctor López
- * @author Inma Jiménez
+ * @author ï¿½lvaro Fernï¿½ndez
+ * @author Vï¿½ctor Lï¿½pez
+ * @author Inma Jimï¿½nez
  * @author Miguel Morales
  *
  */
@@ -70,7 +72,7 @@ public class InterfazEscribirEmail extends JDialog {
 	public static void main(String[] args) {
 		try {
 			InterfazEscribirEmail frame = new InterfazEscribirEmail();
-			frame.setVisible(true); ///////////////////////// MODIFICADO PARA PODER PROBAR MEJOR TODO EL MÉTODO
+			frame.setVisible(true); ///////////////////////// MODIFICADO PARA PODER PROBAR MEJOR TODO EL Mï¿½TODO
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -78,6 +80,8 @@ public class InterfazEscribirEmail extends JDialog {
 
 	/**
 	 * Este constructor crea la ventana con la que se trabaja
+	 * 
+	 * Constructor that create the view 
 	 */
 	public InterfazEscribirEmail() {
 		modeloTexto = new ModeloTextoInterfaz();
@@ -182,9 +186,11 @@ public class InterfazEscribirEmail extends JDialog {
 	}
 
 	/**
-	 * Este método rellena el texto de la ayuda del menú
+	 * Este mï¿½todo rellena el texto de la ayuda del menï¿½ |
 	 * 
-	 * @return El texto de la ayuda del menú
+	 * This method fills with text the help menu
+	 * 
+	 * @return El texto de la ayuda del menï¿½ | 
 	 */
 	private ArrayList<String> llenarListaTituloAyuda() {
 		ArrayList<String> titulosMenuItemAyuda = new ArrayList();
@@ -193,9 +199,11 @@ public class InterfazEscribirEmail extends JDialog {
 	}
 
 	/**
-	 * Este método rellena el texto de las acciones del menú
+	 * Este mï¿½todo rellena el texto de las acciones del menï¿½ |
 	 * 
-	 * @return El texto de las acciones del menú
+	 * This method fills with text the actions from the menu
+	 * 
+	 * @return El texto de las acciones del menï¿½
 	 */
 	private ArrayList<String> llenarListaTituloAcciones() {
 		ArrayList<String> titulosMenuItemAcciones = new ArrayList();

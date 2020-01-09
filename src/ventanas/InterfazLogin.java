@@ -1,7 +1,6 @@
 package ventanas;
 
 import java.awt.Color;
-import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.Rectangle;
 import java.awt.event.ActionEvent;
@@ -14,7 +13,6 @@ import java.net.SocketException;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -28,7 +26,13 @@ import javax.swing.border.LineBorder;
 
 import ftpCliente.ConexionMysql;
 import ftpCliente.ControladorFtp;
-
+/**
+ * Clase que crea la ventana del  login
+ * 
+ * this class create the login's view
+ * 
+ *
+ */
 public class InterfazLogin extends JFrame {
 
 	private BufferedImage image;
@@ -41,26 +45,6 @@ public class InterfazLogin extends JFrame {
 	private static ModeloTextoInterfaz modeloTexto;
 	private JTextField textFierldIp;
 
-	/**
-	 * Launch the application.
-	 */
-	/*public static void main(String[] args) {
-		
-		
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					InterfazLogin frame = new InterfazLogin();
-					frame.setVisible(true);
-					
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-*/
-	
 	/**
 	 * Create the frame.
 	 * 
@@ -138,7 +122,7 @@ public class InterfazLogin extends JFrame {
 						b.printStackTrace();
 					}
 				} else if (comprobarLogin == -2){
-					JOptionPane.showMessageDialog(null, "Contraseña incorrecta");
+					JOptionPane.showMessageDialog(null, "Contraseï¿½a incorrecta");
 				} else if (comprobarLogin == -1 ) {
 					JOptionPane.showMessageDialog(null, "Usuario no existe");
 				}

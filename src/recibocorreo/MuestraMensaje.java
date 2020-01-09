@@ -19,10 +19,12 @@ import javax.swing.JEditorPane;
  * 
  * Esta clase recoge el mensaje que se va a mostrar
  * 
+ * Class that shows all message
+ * 
  * @author Diego Santos
- * @author Álvaro Fernández
- * @author Víctor López
- * @author Inma Jiménez
+ * @author ï¿½lvaro Fernï¿½ndez
+ * @author Vï¿½ctor Lï¿½pez
+ * @author Inma Jimï¿½nez
  * @author Miguel Morales
  */
 public class MuestraMensaje {
@@ -31,10 +33,12 @@ public class MuestraMensaje {
 	private Folder folder;
 
 	/**
-	 * Este constructor el mensaje que se quiere visualizar
+	 * Este constructor el mensaje que se quiere visualizar |
 	 * 
-	 * @param folder     La lista de mensajes guardada
-	 * @param posMensaje Posición del mensaje que se quiere visualizar
+	 * This constructor show the message in order to see the full message
+	 * 
+	 * @param folder     La lista de mensajes guardada | Message list
+	 * @param posMensaje Posiciï¿½n del mensaje que se quiere visualizar | Position where the message is
 	 */
 	public MuestraMensaje(Folder folder, int posMensaje) {
 		this.folder = folder;
@@ -42,10 +46,12 @@ public class MuestraMensaje {
 	}
 
 	/**
-	 * Esta función guarda todo el contenido del mensaje en formato html para
-	 * enviarlo y descarga los ficheros adjuntos que contenga el correo
+	 * Esta funciï¿½n guarda todo el contenido del mensaje en formato html para
+	 * enviarlo y descarga los ficheros adjuntos que contenga el correo | 
 	 * 
-	 * @return Contenido del mensaje en formato html
+	 * This method contains the message in HTML Format and download the files that it contains when its sent
+	 * 
+	 * @return String - Contenido del mensaje en formato html | Content of the message
 	 */
 	public String mostrarMensaje() {
 		StringBuilder txtMensaje = new StringBuilder();
@@ -83,13 +89,13 @@ public class MuestraMensaje {
 			}
 		} catch (MessagingException me) {
 			System.err.println(me.getMessage());
-			txtMensaje.append("<html>Mensaje erróneo</html>");
+			txtMensaje.append("<html>Mensaje errï¿½neo</html>");
 		} catch (IOException ie) {
 			System.err.println(ie.getMessage());
 			txtMensaje.append("<html>No se ha podido cargar el contenido : </html>");
 		} catch (Exception e) {
 			System.err.println(e.getMessage());
-			txtMensaje.append("<html>No se ha elegido ningún correo</html>");
+			txtMensaje.append("<html>No se ha elegido ningï¿½n correo</html>");
 		}
 		return txtMensaje.toString();
 	}

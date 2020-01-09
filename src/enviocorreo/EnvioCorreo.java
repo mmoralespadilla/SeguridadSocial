@@ -23,16 +23,16 @@ import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
 
-import ventanas.InterfazEscribirEmail;
-
 /**
  * 
- * Esta clase se encarga de enviar el correo
+ * Esta clase se encarga de enviar el correo |
+ * 
+ * This class take care of send the email
  * 
  * @author Diego Santos
- * @author Álvaro Fernández
- * @author Víctor López
- * @author Inma Jiménez
+ * @author ï¿½lvaro Fernï¿½ndez
+ * @author Vï¿½ctor Lï¿½pez
+ * @author Inma Jimï¿½nez
  * @author Miguel Morales
  *
  */
@@ -51,13 +51,15 @@ public class EnvioCorreo {
 	/**
 	 * Este constructor coge todos los datos necesarios para enviar el correo
 	 * 
-	 * @param fromEmail El correo de la persona que envía el mensaje
-	 * @param pass      La contraseña del correo con el que se envía el mensaje
-	 * @param toEmail   El correo de la persona que recibirá el mensaje
-	 * @param header    El asunto del correo que se envía
-	 * @param body      El contenido del mensaje a enviar
-	 * @param paths     Las rutas de fichero que posiblemente se envíen junto al
-	 *                  correo
+	 * This constructor gets neccessary data to send emails
+	 * 
+	 * @param fromEmail String - El correo de la persona que envï¿½a el mensaje | Sender's email
+	 * @param pass      String - La contraseï¿½a del correo con el que se envï¿½a el mensaje | User's password
+	 * @param toEmail   String - El correo de la persona que recibirï¿½ el mensaje | recipent's email
+	 * @param header    String - El asunto del correo que se envï¿½a |  email's header
+	 * @param body      String - El contenido del mensaje a enviar | email's body
+	 * @param paths     String - Las rutas de fichero que posiblemente se envï¿½en junto al
+	 *                  correo | File's path which are attached to the email
 	 */
 	public EnvioCorreo(String fromEmail, String pass, String toEmail, String header, String body,
 			ArrayList<String> paths) {
@@ -70,7 +72,10 @@ public class EnvioCorreo {
 	}
 
 	/**
-	 * Este método asigna las propiedades de la clase y se conecta al correo
+	 * Este mï¿½todo asigna las propiedades de la clase y se conecta al correo | 
+	 * 
+	 * This method assign properties for the class and connect to the email
+	 * 
 	 */
 	public void conectar() {
 		Properties props = new Properties();
@@ -85,12 +90,14 @@ public class EnvioCorreo {
 				return new PasswordAuthentication(fromEmail, pass);
 			}
 		});
-		System.out.println("Se ha autentificado con éxito");
+		System.out.println("Se ha autentificado con ï¿½xito");
 	}
 
 	/**
-	 * Este método reúne en un objeto todos los datos requeridos para introducir en
-	 * el correo y lo envía
+	 * Este mï¿½todo reï¿½ne en un objeto todos los datos requeridos para introducir en
+	 * el correo y lo envï¿½a
+	 * 
+	 * This method gets all data necessary to send an email 
 	 */
 	public boolean enviarMensaje() {
 		try {

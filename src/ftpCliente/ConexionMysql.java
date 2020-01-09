@@ -6,7 +6,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
 
 import javax.swing.JComboBox;
@@ -14,7 +13,9 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
- * Clase controladora de solicitudes a la Base de datos MySql
+ * Clase controladora de solicitudes a la Base de datos MySql |
+ * 
+ * Class that control requests for the data base
  * 
  * @author AlvaroFernandez
  *
@@ -22,25 +23,19 @@ import javax.swing.table.DefaultTableModel;
 public class ConexionMysql {
 	private static Connection con;
 	
-	/*private static String host = "fdb24.awardspace.net";
-	private static String port = "3306";
-	private static String database = "3261730_segsoc";
-	private static String user = "3261730_segsoc";
-	private static String password = "twocubes5";*/
-	
-	
 	
 	private final static String BASEDATOS = "segsoc";
 
 	/**
-	 * Metodo para iniciar la conexion con la base de datos
-	 * @return boolean - True si la conexion es valida; False si no
+	 * Metodo para iniciar la conexion con la base de datos |
+	 * 
+	 * Method that initialize the connections to the data base
+	 * 
+	 * @return boolean - True si la conexion es valida; False si no | True if Connection is done properly; False if there is an error
 	 */
 	public static boolean iniciarConexion() {
 		
 		String url = null;
-		
-		//url ="jdbc:mysql://" + host + ":" + port + "/" + database;
 		
 		boolean cargada = false;
 		try {
@@ -53,8 +48,6 @@ public class ConexionMysql {
 			con = DriverManager.getConnection("jdbc:mysql://localhost/" + BASEDATOS, "root", "");
 			
 			
-			//con = DriverManager.getConnection(url, user, password);
-			
 			System.out.println("Conexion sql realizada");
 			cargada = true;
 		} catch (SQLException sqle) {
@@ -66,12 +59,15 @@ public class ConexionMysql {
 	}
 
 	/**
-	 * Metodo para comprobar el login de un usuario con la base de datos
+	 * Metodo para comprobar el login de un usuario con la base de datos |
 	 * 
-	 * @param usuario String - Nombre del usuario
-	 * @param contraseña String - Contraseña del usuario
-	 * @param ftp ControladorFtp - Controlador con los metodos y datos del ftp
-	 * @return int - 0 Si se logeo un funcionario; 1 Si se logeo un empresario; -1 El usuario no existe; -2 La contraseña no es correcta; -3 Fallo en la conexion
+	 * This method checks if the user is in the data base
+	 * 
+	 * @param usuario String - Nombre del usuario | User's name
+	 * @param contraseï¿½a String - Contraseï¿½a del usuario | User's password
+	 * @param ftp ControladorFtp - Controlador con los metodos y datos del ftp | Controller with methods and ftp's data
+	 * @return int - 0 Si se logeo un funcionario; 1 Si se logeo un empresario; -1 El usuario no existe; -2 La contraseï¿½a no es correcta; -3 Fallo en la conexion | 
+	 * 0 If user is a 'funcionario';1 if the user is a entrepreneur; -1 if the user doesn't exist; -2 if the password is wrong; -3 if the connection fails
 	 */
 	public static int comprobarLogin(String usuario, String contrasenia, ControladorFtp ftp) {
 		int tipoLogin = -3;
@@ -103,12 +99,13 @@ public class ConexionMysql {
 	}
 
 	/**
-	 * Metodo para insertar en la tabla movimientos cada accion que se realice en el servidor ftp
+	 * Metodo para insertar en la tabla movimientos cada accion que se realice en el servidor ftp |
 	 * 
-	 * @param usuario String - Nombre del usuario
-	 * @param operacion String - Nombre de la operacion
-	 * @param descripcion String - Texto descriptivo de la operacion
-	 * @return booelan - True si se pudo insertar el registro; False si hubo algun fallo
+	 * Method that insert the operations done in the FTP at the Data Base
+	 * @param usuario String - Nombre del usuario | User's name
+	 * @param operacion String - Nombre de la operacion | Operation's name 
+	 * @param descripcion String - Texto descriptivo de la operacion |  Operation description
+	 * @return booelan - True si se pudo insertar el registro; False si hubo algun fallo | True if the insert was done correctly; False if there is any problem
 	 */
 	public static boolean insertarMovimiento(String usuario, String operacion, String descripcion) {
 		boolean correcto = false;
@@ -135,6 +132,8 @@ public class ConexionMysql {
 
 	/**
 	 * Metodo para cerrar la conexion
+	 * 
+	 * This method close the connection with the Data base
 	 */
 	public static void cerrarConexion() {
 		try {
@@ -145,7 +144,13 @@ public class ConexionMysql {
 			e.printStackTrace();
 		}
 	}
-
+	/**
+	 * Este metodo se encarga de recuperar el usuario que ha realizado una operaciÃ³n en el FTP
+	 * 
+	 * This method recover user's name that made the operation at the FTP
+	 * 
+	 * @param comboBoxUsuarios JComboBox - Objeto seleccionado | Object selected
+	 */
 	public static void recuperarUsuariosMovimiento(JComboBox comboBoxUsuarios) {
 		if(iniciarConexion()) {
 			try {
@@ -164,6 +169,7 @@ public class ConexionMysql {
 		}
 	}
 
+	
 	public static void recargarTablaHistorial(String selectedItem, DefaultTableModel dtm) {
 		if(iniciarConexion()) {
 			try {

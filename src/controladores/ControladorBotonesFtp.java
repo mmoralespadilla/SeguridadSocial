@@ -18,7 +18,9 @@ import ventanas.ModeloTextoInterfaz;
 
 /**
  * Clase que implementa ActionListener para hacer el controlador de los botones
- * de la interfaz FTP
+ * de la interfaz FTP |
+ * 
+ * This class implements actionListener in order to make the controller for the buttons interface of the FTP
  * 
  * @author AlvaroFernandez
  *
@@ -29,11 +31,13 @@ public class ControladorBotonesFtp implements ActionListener {
 	private JLabel lblRuta;
 
 	/**
-	 * Constructor que recibe nuestro controlador FTP
+	 * Constructor que recibe nuestro controlador FTP |
+	 * 
+	 * This constructor gets FTP's controller
 	 * 
 	 * @param ftp ControladorFtp - Controlador que contendra los datos del usuario
 	 *            logeado, y multiples metodos para controlar las acciones
-	 *            realizadas
+	 *            realizadas | Controller that contains the user's data and a few methods so they can control the actions done
 	 */
 	public ControladorBotonesFtp(ControladorFtp ftp) {
 		super();
@@ -42,13 +46,17 @@ public class ControladorBotonesFtp implements ActionListener {
 	}
 
 	/**
-	 * Constructor que recibe nuestro controlador FTP
+	 * Constructor que recibe nuestro controlador FTP |
+	 * 
+	 * This constructor gets FTP's controller
 	 * 
 	 * @param ftp     ControladorFtp - Controlador que contendra los datos del
 	 *                usuario logeado, y multiples metodos para controlar las
-	 *                acciones realizadas
+	 *                acciones realizadas | Controller that contains the user's data and 
+	 *                a few methods so they can control the actions done
+	 *                
 	 * @param lblRuta JLabel - JLabel donde se ira actualizando la ruta cuando se
-	 *                vaya moviendo el usuario
+	 *                vaya moviendo el usuario | JLabel that will update the user's path
 	 */
 	public ControladorBotonesFtp(ControladorFtp ftp, JLabel lblRuta) {
 		super();
@@ -78,27 +86,27 @@ public class ControladorBotonesFtp implements ActionListener {
 						}
 					}
 					if (numeroFicheros == 1) {
-						JOptionPane.showMessageDialog(null, "Archivo subido con éxito");
+						JOptionPane.showMessageDialog(null, "Archivo subido con ï¿½xito");
 					} else if (numeroFicheros > 1) {
-						JOptionPane.showMessageDialog(null, "Archivos subidos con éxito");
+						JOptionPane.showMessageDialog(null, "Archivos subidos con ï¿½xito");
 					} else {
 						JOptionPane.showMessageDialog(null, "Error al subir archivo");
 					}
 				}
 			} catch (NullPointerException e1) {
-				System.out.println("No ha seleccionado ningún fichero");
+				System.out.println("No ha seleccionado ningï¿½n fichero");
 			}
 		}
-		// El boton pulsado es descargar fichero
+		// El boton pulsado es descargar fichero 
 		else if (boton.equals(textos.getTituloDescargarFichero())) {
 			try {
 				JFileChooser elegir = new JFileChooser();
 				archivo = (String) InterfazFtp.dtm.getValueAt(InterfazFtp.table.getSelectedRow(), 1);
 				ftp.descargar(archivo, elegir);
 			} catch (NullPointerException e1) {
-				System.out.println("No ha seleccionado ningún directorio");
+				System.out.println("No ha seleccionado ningï¿½n directorio");
 			} catch (ArrayIndexOutOfBoundsException a1) {
-				System.out.println("No ha seleccionado ningún fichero de la tabla");
+				System.out.println("No ha seleccionado ningï¿½n fichero de la tabla");
 			}
 		}
 		// El boton pulsado es crear fichero
@@ -115,12 +123,12 @@ public class ControladorBotonesFtp implements ActionListener {
 					}
 				}
 			} catch (NullPointerException e1) {
-				System.out.println("Acción cancelada");
+				System.out.println("Acciï¿½n cancelada");
 			}
 			// El boton pulsado es eliminar
 		} else if (boton.equals(textos.getTituloEliminar())) {
 			try {
-				if (JOptionPane.showConfirmDialog(null, "¿Seguro que quiere eliminar?") == 0) {
+				if (JOptionPane.showConfirmDialog(null, "ï¿½Seguro que quiere eliminar?") == 0) {
 					int[] archivos = InterfazFtp.table.getSelectedRows();
 					for (int i = 0; i < archivos.length; i++) {
 						archivo = (String) InterfazFtp.dtm.getValueAt(archivos[i], 1);
@@ -141,7 +149,7 @@ public class ControladorBotonesFtp implements ActionListener {
 
 				}
 			} catch (NullPointerException e1) {
-				System.out.println("Acción cancelada");
+				System.out.println("Acciï¿½n cancelada");
 			}
 			// El boton pulsado es cambiar nombre
 		} else if (boton.equals(textos.getTituloCambiarNombre())) {
