@@ -15,6 +15,7 @@ import org.apache.commons.io.FilenameUtils;
 import ftpCliente.ControladorFtp;
 import ventanas.InterfazEmail;
 import ventanas.InterfazFtp;
+import ventanas.InterfazMostrarHistorial;
 import ventanas.ModeloTextoInterfaz;
 
 /**
@@ -187,7 +188,10 @@ public class ControladorBotonesFtp implements ActionListener {
 		} else if (boton.equals(textos.getTituloServidorInfor())) {
 			JOptionPane.showMessageDialog(null, "En construccion...", null, JOptionPane.ERROR_MESSAGE);
 		} else if (boton.equals(textos.getTituloServidorHistorial())) {
-			JOptionPane.showMessageDialog(null, "En construccion...", null, JOptionPane.ERROR_MESSAGE);
+			InterfazMostrarHistorial histo = new InterfazMostrarHistorial();
+			histo.setModal(true);
+			histo.setVisible(true);
+			histo.setEnabled(true);
 		}
 		InterfazFtp.recargarTabla();
 	}
