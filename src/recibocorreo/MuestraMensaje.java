@@ -22,9 +22,9 @@ import javax.swing.JEditorPane;
  * Class that shows all message
  * 
  * @author Diego Santos
- * @author �lvaro Fern�ndez
- * @author V�ctor L�pez
- * @author Inma Jim�nez
+ * @author Alvaro Fernandez
+ * @author VIctor Lopez
+ * @author Inma Jimenez
  * @author Miguel Morales
  */
 public class MuestraMensaje {
@@ -38,7 +38,7 @@ public class MuestraMensaje {
 	 * This constructor show the message in order to see the full message
 	 * 
 	 * @param folder     La lista de mensajes guardada | Message list
-	 * @param posMensaje Posici�n del mensaje que se quiere visualizar | Position where the message is
+	 * @param posMensaje Posicion del mensaje que se quiere visualizar | Position where the message is
 	 */
 	public MuestraMensaje(Folder folder, int posMensaje) {
 		this.folder = folder;
@@ -46,7 +46,7 @@ public class MuestraMensaje {
 	}
 
 	/**
-	 * Esta funci�n guarda todo el contenido del mensaje en formato html para
+	 * Esta funcion guarda todo el contenido del mensaje en formato html para
 	 * enviarlo y descarga los ficheros adjuntos que contenga el correo | 
 	 * 
 	 * This method contains the message in HTML Format and download the files that it contains when its sent
@@ -89,13 +89,13 @@ public class MuestraMensaje {
 			}
 		} catch (MessagingException me) {
 			System.err.println(me.getMessage());
-			txtMensaje.append("<html>Mensaje err�neo</html>");
+			txtMensaje.append("<html>Mensaje erroneo</html>");
 		} catch (IOException ie) {
 			System.err.println(ie.getMessage());
 			txtMensaje.append("<html>No se ha podido cargar el contenido : </html>");
 		} catch (Exception e) {
 			System.err.println(e.getMessage());
-			txtMensaje.append("<html>No se ha elegido ning�n correo</html>");
+			txtMensaje.append("<html>No se ha elegido ningun correo</html>");
 		}
 		return txtMensaje.toString();
 	}

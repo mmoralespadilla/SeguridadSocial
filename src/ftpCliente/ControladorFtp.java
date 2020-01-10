@@ -22,7 +22,8 @@ import org.apache.commons.net.ftp.FTPFile;
  * 
  * This class contains all services for the FTP
  * 
- * @author Miguel
+ * @author Miguel Morales
+ * @author Alvaro Fernandez
  *
  */
 public class ControladorFtp {

@@ -15,7 +15,7 @@ public class ModeloTextoInterfaz {
 	private String tituloCrearCarpeta = "Crear carpeta";
 	private String tituloCambiarNombre = "Cambiar nombre";
 	private String tituloServidor = "Servidor";
-	private String tituloServidorInfor = "Informaci�n FTP";
+	private String tituloServidorInfor = "Informacion FTP";
 	private String tituloServidorHistorial = "Historial de movimientos";
 	private String tituloAyuda = "Ayuda";
 	private String tituloAyudaSobre = "Sobre...";

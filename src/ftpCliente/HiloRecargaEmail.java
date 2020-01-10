@@ -2,6 +2,12 @@ package ftpCliente;
 
 import ventanas.InterfazEmail;
 
+/**
+ * Hilo para recargar la tabla de los mensajes recibidos cada cierto tiempo
+ * 
+ * @author AlvaroFernandez
+ *
+ */
 public class HiloRecargaEmail extends Thread{
 		
 	public void run() {

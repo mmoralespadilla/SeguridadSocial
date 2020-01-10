@@ -87,15 +87,15 @@ public class ControladorBotonesFtp implements ActionListener {
 						}
 					}
 					if (numeroFicheros == 1) {
-						JOptionPane.showMessageDialog(null, "Archivo subido con �xito");
+						JOptionPane.showMessageDialog(null, "Archivo subido con exito");
 					} else if (numeroFicheros > 1) {
-						JOptionPane.showMessageDialog(null, "Archivos subidos con �xito");
+						JOptionPane.showMessageDialog(null, "Archivos subidos con exito");
 					} else {
 						JOptionPane.showMessageDialog(null, "Error al subir archivo");
 					}
 				}
 			} catch (NullPointerException e1) {
-				System.out.println("No ha seleccionado ning�n fichero");
+				System.out.println("No ha seleccionado ningun fichero");
 			}
 		}
 		// El boton pulsado es descargar fichero 
@@ -105,9 +105,9 @@ public class ControladorBotonesFtp implements ActionListener {
 				archivo = (String) InterfazFtp.dtm.getValueAt(InterfazFtp.table.getSelectedRow(), 1);
 				ftp.descargar(archivo, elegir);
 			} catch (NullPointerException e1) {
-				System.out.println("No ha seleccionado ning�n directorio");
+				System.out.println("No ha seleccionado ningun directorio");
 			} catch (ArrayIndexOutOfBoundsException a1) {
-				System.out.println("No ha seleccionado ning�n fichero de la tabla");
+				System.out.println("No ha seleccionado ningun fichero de la tabla");
 			}
 		}
 		// El boton pulsado es crear fichero
@@ -123,13 +123,13 @@ public class ControladorBotonesFtp implements ActionListener {
 					}
 				}
 			} catch (NullPointerException e1) {
-				System.out.println("Acci�n cancelada");
+				System.out.println("Accion cancelada");
 			}
 			// El boton pulsado es eliminar
 		} else if (boton.equals(textos.getTituloEliminar())) {
 			try {
 				int[] archivos = InterfazFtp.table.getSelectedRows();
-				if (JOptionPane.showConfirmDialog(null, "�Seguro que quiere eliminar?") == 0) {
+				if (JOptionPane.showConfirmDialog(null, "Seguro que quiere eliminar?") == 0) {
 					for (int i = 0; i < archivos.length; i++) {
 						archivo = (String) InterfazFtp.dtm.getValueAt(archivos[i], 1);
 						ftp.borrarCarpeta(archivo);
@@ -149,7 +149,7 @@ public class ControladorBotonesFtp implements ActionListener {
 
 				}
 			} catch (NullPointerException e1) {
-				System.out.println("Acci�n cancelada");
+				System.out.println("Accion cancelada");
 			}
 			// El boton pulsado es cambiar nombre
 		} else if (boton.equals(textos.getTituloCambiarNombre())) {

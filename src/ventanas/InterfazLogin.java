@@ -45,10 +45,9 @@ public class InterfazLogin extends JFrame {
 	private static ModeloTextoInterfaz modeloTexto;
 	private JTextField textFierldIp;
 
+	
 	/**
-	 * Create the frame.
-	 * 
-	 * @throws IOException
+	 *  Create the frame
 	 */
 	public InterfazLogin(){
 		modeloTexto = new ModeloTextoInterfaz();
@@ -113,6 +112,8 @@ public class InterfazLogin extends JFrame {
 							} catch (Exception c) {
 								c.printStackTrace();
 							}
+						}else {
+							JOptionPane.showMessageDialog(null, "Usuario o contraseña FTP erronea");
 						}
 					} catch (SocketException a) {
 						// TODO Auto-generated catch block
@@ -122,7 +123,7 @@ public class InterfazLogin extends JFrame {
 						b.printStackTrace();
 					}
 				} else if (comprobarLogin == -2){
-					JOptionPane.showMessageDialog(null, "Contraseï¿½a incorrecta");
+					JOptionPane.showMessageDialog(null, "Contrasenia incorrecta");
 				} else if (comprobarLogin == -1 ) {
 					JOptionPane.showMessageDialog(null, "Usuario no existe");
 				}
@@ -149,7 +150,6 @@ public class InterfazLogin extends JFrame {
 		panelLogin.add(textFierldIp);
 		
 		rutaImagen = "imagen\\logo.png";
-  
 		try {
 			image = ImageIO.read(new File(rutaImagen));
 			JLabel Imagen = new JLabel(new ImageIcon(image));
@@ -159,7 +159,5 @@ public class InterfazLogin extends JFrame {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
-		
-		
 	}
 }

@@ -40,9 +40,9 @@ import java.awt.event.WindowEvent;
  * This class contains the view that manage the email
  * 
  * @author Diego Santos
- * @author �lvaro Fern�ndez
- * @author V�ctor L�pez
- * @author Inma Jim�nez
+ * @author Alvaro Fernandez
+ * @author VIctor Lopez
+ * @author Inma Jimenez
  * @author Miguel Morales
  */
 public class InterfazEmail extends JDialog {
@@ -70,8 +70,8 @@ public class InterfazEmail extends JDialog {
 	 * administrar y crea la ventana
 	 *
 	 * This constructor save user and password that the email and create a window
-	 * @param user El correo que se va a administrar
-	 * @param pass La contrase�a del correo que se va a administrar
+	 * @param user String - El correo que se va a administrar
+	 * @param pass String - La contrasena del correo que se va a administrar
 	 */
 	public InterfazEmail(String user, String pass) {
 		addWindowListener(new WindowAdapter() {
@@ -159,7 +159,7 @@ public class InterfazEmail extends JDialog {
 	}
 
 	/**
-	 * Este m�todo rellena el texto de la ayuda del men�
+	 * Este metodo rellena el texto de la ayuda del menu
 	 * 
 	 * This method fill the text of the help menu
 	 * 
@@ -172,11 +172,11 @@ public class InterfazEmail extends JDialog {
 	}
 
 	/**
-	 * Este m�todo rellena el texto de las acciones del men� |
+	 * Este metodo rellena el texto de las acciones del menu |
 	 * 
 	 * This method fill with text all the action from the menu
 	 * 
-	 * @return ArrayList<String> - El texto de las acciones del men� | Text of the actions from menu
+	 * @return ArrayList<String> - El texto de las acciones del menu | Text of the actions from menu
 	 */
 	private ArrayList<String> llenarListaTituloAcciones() {
 		ArrayList<String> titulosMenuItemAcciones = new ArrayList();

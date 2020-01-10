@@ -30,9 +30,9 @@ import javax.mail.internet.MimeMultipart;
  * This class take care of send the email
  * 
  * @author Diego Santos
- * @author �lvaro Fern�ndez
- * @author V�ctor L�pez
- * @author Inma Jim�nez
+ * @author Alvaro Fernandez
+ * @author VIctor Lopez
+ * @author Inma Jimenez
  * @author Miguel Morales
  *
  */
@@ -53,13 +53,18 @@ public class EnvioCorreo {
 	 * 
 	 * This constructor gets neccessary data to send emails
 	 * 
-	 * @param fromEmail String - El correo de la persona que env�a el mensaje | Sender's email
-	 * @param pass      String - La contrase�a del correo con el que se env�a el mensaje | User's password
-	 * @param toEmail   String - El correo de la persona que recibir� el mensaje | recipent's email
-	 * @param header    String - El asunto del correo que se env�a |  email's header
+	 * @param fromEmail String - El correo de la persona que envia el mensaje |
+	 *                  Sender's email
+	 * @param pass      String - La contrasena del correo con el que se envia el
+	 *                  mensaje | User's password
+	 * @param toEmail   String - El correo de la persona que recibira el mensaje |
+	 *                  recipent's email
+	 * @param header    String - El asunto del correo que se envia | email's
+	 *                  header
 	 * @param body      String - El contenido del mensaje a enviar | email's body
-	 * @param paths     String - Las rutas de fichero que posiblemente se env�en junto al
-	 *                  correo | File's path which are attached to the email
+	 * @param paths     String - Las rutas de fichero que posiblemente se envien
+	 *                  junto al correo | File's path which are attached to the
+	 *                  email
 	 */
 	public EnvioCorreo(String fromEmail, String pass, String toEmail, String header, String body,
 			ArrayList<String> paths) {
@@ -72,7 +77,7 @@ public class EnvioCorreo {
 	}
 
 	/**
-	 * Este m�todo asigna las propiedades de la clase y se conecta al correo | 
+	 * Este m�todo asigna las propiedades de la clase y se conecta al correo |
 	 * 
 	 * This method assign properties for the class and connect to the email
 	 * 
@@ -90,32 +95,32 @@ public class EnvioCorreo {
 				return new PasswordAuthentication(fromEmail, pass);
 			}
 		});
-		System.out.println("Se ha autentificado con �xito");
+		System.out.println("Se ha autentificado con exito");
 	}
 
 	/**
-	 * Este m�todo re�ne en un objeto todos los datos requeridos para introducir en
-	 * el correo y lo env�a
+	 * Este metodo re�ne en un objeto todos los datos requeridos para introducir
+	 * en el correo y lo envia
 	 * 
-	 * This method gets all data necessary to send an email 
+	 * This method gets all data necessary to send an email
 	 */
 	public boolean enviarMensaje() {
 		try {
-			
+
 			guardarRemitentes();
-			
+
 			direcciones = new Address[toEmails.size()];
-			
-			for(int i = 0; i < direcciones.length; i++) {
+
+			for (int i = 0; i < direcciones.length; i++) {
 				direcciones[i] = new InternetAddress(toEmails.get(i));
 			}
-			
+
 			MimeMessage msg = new MimeMessage(session);
 			msg.addHeader("Content-type", "text/HTML; charset=UTF-8");
 			msg.addHeader("format", "flowed");
 
 			msg.setFrom(new InternetAddress(fromEmail, "Seguridad Social"));
-			
+
 			msg.setReplyTo(direcciones);
 
 			msg.setSubject(header, "UTF-8");
@@ -163,11 +168,11 @@ public class EnvioCorreo {
 		String email = "";
 		for (int i = 0; i < toEmail.length(); i++) {
 			email += toEmail.substring(i, i + 1);
-			if(toEmail.substring(i, i + 1).equals(",")) {
+			if (toEmail.substring(i, i + 1).equals(",")) {
 				email = email.substring(0, email.length() - 1);
 				toEmails.add(email.trim());
 				email = "";
-				//comas++;
+				// comas++;
 			}
 		}
 		toEmails.add(email.trim());

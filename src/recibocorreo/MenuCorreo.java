@@ -17,9 +17,9 @@ import javax.mail.Store;
  * This method connect with the email and download the messages
  * 
  * @author Diego Santos
- * @author �lvaro Fern�ndez
- * @author V�ctor L�pez
- * @author Inma Jim�nez
+ * @author Alvaro Fernandez
+ * @author VIctor Lopez
+ * @author Inma Jimenez
  * @author Miguel Morales
  */
 public class MenuCorreo {
@@ -32,12 +32,12 @@ public class MenuCorreo {
 	private static String pass;
 
 	/**
-	 * Este constructor recibe el correo y la contrase�a a usar
+	 * Este constructor recibe el correo y la contrasena a usar
 	 * 
 	 *  This constructor gets the emails and the password
 	 *  
 	 * @param user String - Correo del usuario | User's email
-	 * @param pass String - Contrase�a del correo | User's password
+	 * @param pass String - Contrasena del correo | User's password
 	 */
 	public MenuCorreo(String user, String pass) {
 		this.user = user;
@@ -45,7 +45,7 @@ public class MenuCorreo {
 	}
 
 	/**
-	 * Constructor vac�o para poder crear la clase sin usar par�metros
+	 * Constructor vacio para poder crear la clase sin usar parametros
 	 * 
 	 * empty Constructor to create the class without parameters
 	 */
@@ -54,7 +54,7 @@ public class MenuCorreo {
 	}
 
 	/**
-	 * Este m�todo asigna las propiedades de la clase, conecta con el correo y descarga los mensajes | 
+	 * Este metodo asigna las propiedades de la clase, conecta con el correo y descarga los mensajes | 
 	 * 
 	 * This method assings all properties for the class,connect with the email and download the messages
 	 * 
@@ -87,7 +87,7 @@ public class MenuCorreo {
 	}
 
 	/**
-	 * Esta funci�n guarda la lista de mensajes, con sus remitentes y asuntos aparte
+	 * Esta funcion guarda la lista de mensajes, con sus remitentes y asuntos aparte
 	 * 
 	 * This method save a message list with its sender and its subject
 	 * 
@@ -116,7 +116,7 @@ public class MenuCorreo {
 	}
 
 	/**
-	 * Este m�todo cierra la conexi�n con el correo
+	 * Este metodo cierra la conexion con el correo
 	 * 
 	 * This method close the email's connection
 	 */

@@ -7,6 +7,12 @@ import javax.swing.JTable;
 import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableCellRenderer;
 
+/**
+ * Clase extendida de CellRenderer para modificar las celdas de una tabla
+ * 
+ * @author AlvaroFernandez
+ *
+ */
 public class CellRender extends DefaultTableCellRenderer {
 
 		@Override

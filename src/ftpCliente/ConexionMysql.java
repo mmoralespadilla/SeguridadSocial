@@ -64,9 +64,9 @@ public class ConexionMysql {
 	 * This method checks if the user is in the data base
 	 * 
 	 * @param usuario String - Nombre del usuario | User's name
-	 * @param contrase�a String - Contrase�a del usuario | User's password
+	 * @param contrase�a String - Contrasena del usuario | User's password
 	 * @param ftp ControladorFtp - Controlador con los metodos y datos del ftp | Controller with methods and ftp's data
-	 * @return int - 0 Si se logeo un funcionario; 1 Si se logeo un empresario; -1 El usuario no existe; -2 La contrase�a no es correcta; -3 Fallo en la conexion | 
+	 * @return int - 0 Si se logeo un funcionario; 1 Si se logeo un empresario; -1 El usuario no existe; -2 La contrasena no es correcta; -3 Fallo en la conexion | 
 	 * 0 If user is a 'funcionario';1 if the user is a entrepreneur; -1 if the user doesn't exist; -2 if the password is wrong; -3 if the connection fails
 	 */
 	public static int comprobarLogin(String usuario, String contrasenia, ControladorFtp ftp) {
@@ -145,7 +145,7 @@ public class ConexionMysql {
 		}
 	}
 	/**
-	 * Este metodo se encarga de recuperar el usuario que ha realizado una operación en el FTP
+	 * Este metodo se encarga de recuperar el usuario que ha realizado una operacion en el FTP
 	 * 
 	 * This method recover user's name that made the operation at the FTP
 	 * 
@@ -170,11 +170,16 @@ public class ConexionMysql {
 	}
 
 	
-	public static void recargarTablaHistorial(String selectedItem, DefaultTableModel dtm) {
+	/**
+	 * Metodo para recuperar los movimientos de un usuario en el ftp
+	 * @param nombreUsuario String - Nombre del usuario que sera buscado en la base de datos
+	 * @param dtm DefaultTableModer - Modelo de la tabla donde sse insertaran los datos
+	 */
+	public static void recargarTablaHistorial(String nombreUsuario, DefaultTableModel dtm) {
 		if(iniciarConexion()) {
 			try {
 				Statement st = con.createStatement();
-				String query = "select * from movimientos where usuario = '"+selectedItem+"'";
+				String query = "select * from movimientos where usuario = '"+nombreUsuario+"'";
 				ResultSet rs = st.executeQuery(query);
 				while(rs.next()) {
 					String id = Integer.toString(rs.getInt(1));

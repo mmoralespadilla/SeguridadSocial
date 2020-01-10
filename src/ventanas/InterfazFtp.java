@@ -58,8 +58,10 @@ public class InterfazFtp extends JFrame {
 	private static CreadorInterfaz creador;
 	private JLabel lblRuta;
 
+	
 	/**
-	 * Create the frame.
+	 * Creacion del frame
+	 * @param ftp ControladorFtp - Objeto que contiene la conexion y datos del usuario Ftp
 	 */
 	public InterfazFtp(ControladorFtp ftp) {
 		// Actualizar

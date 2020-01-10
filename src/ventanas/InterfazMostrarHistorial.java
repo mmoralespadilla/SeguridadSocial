@@ -25,19 +25,6 @@ public class InterfazMostrarHistorial extends JDialog {
 	private static JComboBox comboBoxUsuarios;
 
 	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		try {
-			InterfazMostrarHistorial dialog = new InterfazMostrarHistorial();
-			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
-			dialog.setVisible(true);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}  
-
-	/**
 	 * Create the dialog.
 	 */
 	public InterfazMostrarHistorial() {
@@ -101,9 +88,9 @@ public class InterfazMostrarHistorial extends JDialog {
 	}
 
 	/**
-	 * Metodo que vacia la tabla, y la vuelve a rellenar con los datos de neodatis
+	 * Metodo que vacia la tabla, y la vuelve a rellenar con los datos de MySql
 	 * 
-	 * this method empty the table and fill it with the data from neodatis
+	 * this method empty the table and fill it with the data from MySql
 	 */
 	public static void recargarTabla() {
 		vaciarTabla();

@@ -24,9 +24,9 @@ import ventanas.ModeloTextoInterfaz;
  * This class implements each function for the buttons.
  *  
  * @author Diego Santos
- * @author �lvaro Fern�ndez
- * @author V�ctor L�pez
- * @author Inma Jim�nez
+ * @author Alvaro Fernandez
+ * @author VIctor Lopez
+ * @author Inma Jimenez
  * @author Miguel Morales
  *
  */

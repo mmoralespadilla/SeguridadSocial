@@ -46,9 +46,9 @@ import javax.swing.JEditorPane;
  * This class contain the view that the user use to write and send email
  * 
  * @author Diego Santos
- * @author �lvaro Fern�ndez
- * @author V�ctor L�pez
- * @author Inma Jim�nez
+ * @author Alvaro Fernandez
+ * @author VIctor Lopez
+ * @author Inma Jimenez
  * @author Miguel Morales
  *
  */
@@ -186,11 +186,11 @@ public class InterfazEscribirEmail extends JDialog {
 	}
 
 	/**
-	 * Este m�todo rellena el texto de la ayuda del men� |
+	 * Este metodo rellena el texto de la ayuda del menu |
 	 * 
 	 * This method fills with text the help menu
 	 * 
-	 * @return El texto de la ayuda del men� | 
+	 * @return ArrayList<String> - El texto de la ayuda del menu | 
 	 */
 	private ArrayList<String> llenarListaTituloAyuda() {
 		ArrayList<String> titulosMenuItemAyuda = new ArrayList();
@@ -199,11 +199,11 @@ public class InterfazEscribirEmail extends JDialog {
 	}
 
 	/**
-	 * Este m�todo rellena el texto de las acciones del men� |
+	 * Este metodo rellena el texto de las acciones del menu |
 	 * 
 	 * This method fills with text the actions from the menu
 	 * 
-	 * @return El texto de las acciones del men�
+	 * @return ArrayList<String> - El texto de las acciones del menu
 	 */
 	private ArrayList<String> llenarListaTituloAcciones() {
 		ArrayList<String> titulosMenuItemAcciones = new ArrayList();
