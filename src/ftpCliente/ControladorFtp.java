@@ -120,8 +120,6 @@ public class ControladorFtp {
 	public void borrarCarpeta(String nombreCarpeta) {
 		try {
 			FTPFile f = cliente.mlistFile(nombreCarpeta);
-			
-				
 				if (f.isDirectory()) {
 					if (cliente.removeDirectory(nombreCarpeta)) {
 						ConexionMysql.insertarMovimiento(user, "Borrar carpeta", "Carpeta " + nombreCarpeta + " borrada");
@@ -131,13 +129,10 @@ public class ControladorFtp {
 						cliente.changeWorkingDirectory(rutaNueva);
 						posicion++;
 						rutas.add(rutaNueva);
-						
 						ficheros = cliente.listFiles();
-						
 						for(FTPFile fichero : ficheros) {
 							borrarCarpeta(fichero.getName());
 						}
-						
 						posicion--;
 						cliente.changeWorkingDirectory(rutas.get(posicion));
 						rutas.remove(posicion);

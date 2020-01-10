@@ -7,7 +7,7 @@ public class HiloRecargaEmail extends Thread{
 	public void run() {
 		while(true) {
 			try {
-				sleep(10000);
+				sleep(30000);
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
