@@ -40,11 +40,11 @@ public class ModeloTextoInterfaz {
 	private String tituloBotonEnviar = "Enviar";
 	private String cabeceraContenido = "Contenido";
 	private String tituloBotonEliminar = "Eliminar adjunto";
-	private String tituloBotonAtras = "< Atr�s";
+	private String tituloBotonAtras = "< Atras";
 	private String cabeceraAsunto = "Asunto";
 	private String mensajeEnviado = "Mensaje enviado";
-	private String enviadoConExito = "El mensaje ha sido enviado con �xito";
-	private String errorEnvio = "Error de env�o";
+	private String enviadoConExito = "El mensaje ha sido enviado con exito";
+	private String errorEnvio = "Error de envio";
 	private String noEnviado = "No se ha podido enviar el correo, comprueba que has escrito el remitente correctamente";
 	private String cabeceraTipoArchivo = "Tipo";
 	private String direccionFtp = "Ip ftp";

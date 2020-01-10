@@ -1,5 +1,6 @@
 package controladores;
 
+import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -69,6 +70,9 @@ public class ControladorBotonesCorreo implements ActionListener {
 			ventana.pack();
 
 			ventana.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+			Dimension dim = new Dimension(955, 547);
+			ventana.setMinimumSize(dim);
+			ventana.setLocationRelativeTo(null);
 			ventana.setModal(true);
 			ventana.setVisible(true);
 
