@@ -1,6 +1,7 @@
 package controladores;
 
 import java.awt.Dimension;
+import java.awt.HeadlessException;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -93,11 +94,16 @@ public class ControladorBotonesCorreo implements ActionListener {
 			}
   
 		} else if (boton.equals(textos.getTituloBotonAdjuntar())) {
-			JFileChooser adjuntar = new JFileChooser();
-			adjuntar.showOpenDialog(null);
-			adjuntar.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
-			paths.add(adjuntar.getSelectedFile().getAbsolutePath());
-			InterfazEscribirEmail.getListaAdjuntos().addItem(adjuntar.getSelectedFile().getName());
+			try {
+				JFileChooser adjuntar = new JFileChooser();
+				if(adjuntar.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
+					adjuntar.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
+					paths.add(adjuntar.getSelectedFile().getAbsolutePath());
+					InterfazEscribirEmail.getListaAdjuntos().addItem(adjuntar.getSelectedFile().getName());
+				}
+			} catch (NullPointerException e1) {
+				
+			}
 
 		} else if (boton.equals(textos.getTituloBotonEliminar())) {
 			for (int i = 0; i < paths.size(); i++) {
