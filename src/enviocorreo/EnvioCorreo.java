@@ -47,6 +47,7 @@ public class EnvioCorreo {
 	private String body;
 	private ArrayList<String> paths = new ArrayList<>();
 	private ArrayList<String> toEmails;
+	private String nombreUsuario;
 
 	/**
 	 * Este constructor coge todos los datos necesarios para enviar el correo
@@ -67,13 +68,14 @@ public class EnvioCorreo {
 	 *                  email
 	 */
 	public EnvioCorreo(String fromEmail, String pass, String toEmail, String header, String body,
-			ArrayList<String> paths) {
+			ArrayList<String> paths, String nombreUsuario) {
 		this.fromEmail = fromEmail;
 		this.pass = pass;
 		this.toEmail = toEmail;
 		this.header = header;
 		this.body = body;
 		this.paths = paths;
+		this.nombreUsuario = nombreUsuario;
 	}
 
 	/**
@@ -119,7 +121,7 @@ public class EnvioCorreo {
 			msg.addHeader("Content-type", "text/HTML; charset=UTF-8");
 			msg.addHeader("format", "flowed");
 
-			msg.setFrom(new InternetAddress(fromEmail, "Seguridad Social"));
+			msg.setFrom(new InternetAddress(fromEmail, nombreUsuario));
 
 			msg.setReplyTo(direcciones);
 

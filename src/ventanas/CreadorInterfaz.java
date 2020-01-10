@@ -52,7 +52,7 @@ public class CreadorInterfaz {
 	 * This constructor start the controller of buttons
 	 */
 	public CreadorInterfaz() {
-		controlBotonesCorreo = new ControladorBotonesCorreo();
+		controlBotonesCorreo = new ControladorBotonesCorreo(ftp.getUser());
 	}
 
 	/**

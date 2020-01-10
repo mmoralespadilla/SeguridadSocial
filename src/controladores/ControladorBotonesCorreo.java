@@ -36,10 +36,19 @@ public class ControladorBotonesCorreo implements ActionListener {
 
 	private ModeloTextoInterfaz textos;
 	private ArrayList<String> paths = new ArrayList<>();
+	private String nombreUsuario;
 
 	/**
 	 * Este constructor crea los textos que se usan en la clase | Constructor that creates the texts for the class
 	 */
+	public ControladorBotonesCorreo(String nombreUsuario) {
+		super();
+		textos = new ModeloTextoInterfaz();
+		this.nombreUsuario = nombreUsuario;
+	}
+	
+	
+
 	public ControladorBotonesCorreo() {
 		super();
 		textos = new ModeloTextoInterfaz();
@@ -118,7 +127,7 @@ public class ControladorBotonesCorreo implements ActionListener {
 			enviocorreo.EnvioCorreo conecEnviar = new EnvioCorreo(datosUsu.getUser(), datosUsu.getPass(),
 					InterfazEscribirEmail.getTextFieldPara().getText(),
 					InterfazEscribirEmail.getTextFieldAsunto().getText(),
-					InterfazEscribirEmail.getAreaTexto().getText(), paths);
+					InterfazEscribirEmail.getAreaTexto().getText(), paths, nombreUsuario);
 			conecEnviar.conectar();
 			if (conecEnviar.enviarMensaje()) {
 				JOptionPane.showConfirmDialog(null, textos.getEnviadoConExito(), textos.getMensajeEnviado(),
